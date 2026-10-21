@@ -65,6 +65,15 @@
             overflow-x: hidden;
         }
 
+        /* Professional portfolio refinements */
+        html { scroll-padding-top: 100px; }
+        body { line-height: 1.65; }
+        input, textarea, select, button, a { -webkit-tap-highlight-color: transparent; }
+        input:focus-visible, textarea:focus-visible, select:focus-visible, button:focus-visible, a:focus-visible { outline: 2px solid #C084FC; outline-offset: 3px; }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
+        }
+
         /* Glowing Aura Canvas & Ambient Overlay */
         .glow-aura {
             background: radial-gradient(circle at 50% 30%, rgba(168, 85, 247, 0.25) 0%, rgba(147, 51, 234, 0.1) 45%, rgba(5, 8, 20, 0) 70%);
@@ -125,10 +134,6 @@
             <a href="#projects" class="nav-link px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium transition-all text-slate-300 hover:text-white hover:bg-purple-900/40">Projects</a>
             <a href="#certifications" class="nav-link px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium transition-all text-slate-300 hover:text-white hover:bg-purple-900/40">Certifications</a>
             <a href="#skills" class="nav-link px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium transition-all text-slate-300 hover:text-white hover:bg-purple-900/40 hidden md:inline-block">Skills</a>
-            <button onclick="openMediaStudio()" class="px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-semibold bg-gradient-to-r from-purple-500 to-indigo-600 text-white hover:from-purple-600 hover:to-indigo-700 shadow-md transition flex items-center gap-1.5">
-                <i class="fa-solid fa-cloud-arrow-up text-xs"></i>
-                <span>Media Studio</span>
-            </button>
             <a href="#contact" class="px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-medium border border-purple-400/40 text-purple-200 hover:bg-purple-500/20 transition">Contact</a>
         </nav>
     </header>
@@ -162,7 +167,7 @@
             </div>
 
             <div class="max-w-6xl w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                <!-- Left: Profile Portrait Card inspired by sample designs -->
+                <!-- Left: Profile Portrait Card -->
                 <div class="lg:col-span-5 flex flex-col items-center justify-center">
                     <div class="relative group">
                         <!-- Outer Ambient Violet Glowing Frame -->
@@ -171,7 +176,7 @@
                         <!-- Main Circular Profile Portrait Container -->
                         <div class="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full overflow-hidden p-1.5 bg-gradient-to-tr from-purple-500 via-pink-400 to-violet-300 shadow-2xl">
                             <div class="w-full h-full rounded-full overflow-hidden bg-navy-900 relative">
-                                <img id="heroProfileImg" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800" alt="Jeramie Anne Losorata" class="w-full h-full object-cover object-center transition duration-500 group-hover:scale-105" onerror="this.onerror=null; this.src='https://placehold.co/400x400/172250/C084FC?text=Jeramie+Losorata';">
+                                <img id="heroProfileImg" src="Professional Passport Portrait.png" alt="Jeramie Anne Losorata" class="w-full h-full object-cover object-center transition duration-500 group-hover:scale-105" onerror="this.onerror=null; this.src='https://placehold.co/400x400/172250/C084FC?text=Jeramie+Losorata';">
                             </div>
                         </div>
 
@@ -193,13 +198,13 @@
                             </div>
                             <div>
                                 <p class="text-[10px] text-indigo-300 font-semibold tracking-wider uppercase">USJR Senior</p>
-                                <p class="text-xs font-bold text-white">BS Computer Science '27</p>
+                                <p class="text-xs font-bold text-white">BS Computer Science</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Right: Hero Intro Text Box inspired by sample layout -->
+                <!-- Right: Hero Intro Text Box -->
                 <div class="lg:col-span-7 text-center lg:text-left space-y-6">
                     <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-500/10 border border-purple-400/30 text-purple-300 text-xs sm:text-sm font-medium">
                         <span class="w-2 h-2 rounded-full bg-purple-400 animate-ping"></span>
@@ -218,13 +223,14 @@
                             <i class="fa-solid fa-sparkles text-purple-600 text-lg"></i>
                         </h2>
                         <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
-                            Senior Computer Science student at University of San Jose-Recoletos specializing in <strong>Transformer NLP Pipelines</strong>, <strong>Computer Vision (HOG/SVM)</strong>, and <strong>Scalable Backend Architectures (FastAPI & Django)</strong> for civic tech and healthcare innovations.
+                            Computer Science student at the University of San Jose–Recoletos with interests in <strong>Software Development</strong>, <strong>Cybersecurity</strong>, <strong>Artificial Intelligence and Machine Learning</strong>, and <strong>Backend Engineering</strong>. I build practical, user-focused applications from NLP-powered disaster response tools to full-stack systems using Python, Django, FastAPI, React, and modern data technologies.
                         </p>
                         <div class="pt-2 flex flex-wrap items-center gap-3">
                             <a href="#projects" class="px-5 py-2.5 rounded-xl bg-purple-700 hover:bg-purple-800 text-white font-semibold text-sm transition shadow-lg shadow-purple-700/30 flex items-center gap-2">
                                 <span>Explore Projects</span>
                                 <i class="fa-solid fa-arrow-right text-xs"></i>
                             </a>
+                            <a href="JERAMIE%20ANNE%20LOSORATA_USJR_CV.pdf" download="JERAMIE ANNE LOSORATA_USJR_CV.pdf" class="px-5 py-2.5 rounded-xl border border-purple-300/60 text-navy-950 hover:bg-purple-50 font-semibold text-sm transition flex items-center gap-2"><i class="fa-solid fa-file-arrow-down"></i><span>Download CV</span></a>
                             <a href="https://github.com/julmaerlithe" target="_blank" class="px-5 py-2.5 rounded-xl border border-slate-300 hover:border-purple-600 text-navy-900 font-semibold text-sm transition flex items-center gap-2 hover:bg-purple-50">
                                 <i class="fa-brands fa-github text-base"></i>
                                 <span>GitHub Profile</span>
@@ -364,15 +370,15 @@
                             <span>Machine Learning, NLP & Computer Vision</span>
                         </h3>
                         <div class="flex flex-wrap gap-2">
-                            <span class="skill-tag">PyTorch</span>
-                            <span class="skill-tag">Hugging Face Transformers</span>
-                            <span class="skill-tag">XLM-RoBERTa / mDeBERTa</span>
-                            <span class="skill-tag">OpenCV</span>
-                            <span class="skill-tag">HOG Feature Extraction</span>
-                            <span class="skill-tag">SVM (RBF Kernel)</span>
-                            <span class="skill-tag">scikit-learn</span>
-                            <span class="skill-tag">Statsmodels</span>
-                            <span class="skill-tag">Pandas / NumPy</span>
+                            <span class="px-3 py-1 rounded-lg text-xs font-medium bg-purple-900/40 text-purple-200 border border-purple-500/30">PyTorch</span>
+                            <span class="px-3 py-1 rounded-lg text-xs font-medium bg-purple-900/40 text-purple-200 border border-purple-500/30">Hugging Face Transformers</span>
+                            <span class="px-3 py-1 rounded-lg text-xs font-medium bg-purple-900/40 text-purple-200 border border-purple-500/30">XLM-RoBERTa / mDeBERTa</span>
+                            <span class="px-3 py-1 rounded-lg text-xs font-medium bg-purple-900/40 text-purple-200 border border-purple-500/30">OpenCV</span>
+                            <span class="px-3 py-1 rounded-lg text-xs font-medium bg-purple-900/40 text-purple-200 border border-purple-500/30">HOG Feature Extraction</span>
+                            <span class="px-3 py-1 rounded-lg text-xs font-medium bg-purple-900/40 text-purple-200 border border-purple-500/30">SVM (RBF Kernel)</span>
+                            <span class="px-3 py-1 rounded-lg text-xs font-medium bg-purple-900/40 text-purple-200 border border-purple-500/30">scikit-learn</span>
+                            <span class="px-3 py-1 rounded-lg text-xs font-medium bg-purple-900/40 text-purple-200 border border-purple-500/30">Statsmodels</span>
+                            <span class="px-3 py-1 rounded-lg text-xs font-medium bg-purple-900/40 text-purple-200 border border-purple-500/30">Pandas / NumPy</span>
                         </div>
                     </div>
 
@@ -383,13 +389,13 @@
                             <span>Programming & Backend Frameworks</span>
                         </h3>
                         <div class="flex flex-wrap gap-2">
-                            <span class="skill-tag">Python</span>
-                            <span class="skill-tag">FastAPI</span>
-                            <span class="skill-tag">Django</span>
-                            <span class="skill-tag">JavaScript (ES6+)</span>
-                            <span class="skill-tag">Node.js / Express.js</span>
-                            <span class="skill-tag">MQTT Protocols</span>
-                            <span class="skill-tag">ESP32 Firmware</span>
+                            <span class="px-3 py-1 rounded-lg text-xs font-medium bg-purple-900/40 text-purple-200 border border-purple-500/30">Python</span>
+                            <span class="px-3 py-1 rounded-lg text-xs font-medium bg-purple-900/40 text-purple-200 border border-purple-500/30">FastAPI</span>
+                            <span class="px-3 py-1 rounded-lg text-xs font-medium bg-purple-900/40 text-purple-200 border border-purple-500/30">Django</span>
+                            <span class="px-3 py-1 rounded-lg text-xs font-medium bg-purple-900/40 text-purple-200 border border-purple-500/30">JavaScript (ES6+)</span>
+                            <span class="px-3 py-1 rounded-lg text-xs font-medium bg-purple-900/40 text-purple-200 border border-purple-500/30">Node.js / Express.js</span>
+                            <span class="px-3 py-1 rounded-lg text-xs font-medium bg-purple-900/40 text-purple-200 border border-purple-500/30">MQTT Protocols</span>
+                            <span class="px-3 py-1 rounded-lg text-xs font-medium bg-purple-900/40 text-purple-200 border border-purple-500/30">ESP32 Firmware</span>
                         </div>
                     </div>
 
@@ -400,11 +406,11 @@
                             <span>Frontend & UI Technologies</span>
                         </h3>
                         <div class="flex flex-wrap gap-2">
-                            <span class="skill-tag">React.js</span>
-                            <span class="skill-tag">HTML5 / CSS3</span>
-                            <span class="skill-tag">Tailwind CSS</span>
-                            <span class="skill-tag">Google Maps API</span>
-                            <span class="skill-tag">Geospatial Heatmaps</span>
+                            <span class="px-3 py-1 rounded-lg text-xs font-medium bg-purple-900/40 text-purple-200 border border-purple-500/30">React.js</span>
+                            <span class="px-3 py-1 rounded-lg text-xs font-medium bg-purple-900/40 text-purple-200 border border-purple-500/30">HTML5 / CSS3</span>
+                            <span class="px-3 py-1 rounded-lg text-xs font-medium bg-purple-900/40 text-purple-200 border border-purple-500/30">Tailwind CSS</span>
+                            <span class="px-3 py-1 rounded-lg text-xs font-medium bg-purple-900/40 text-purple-200 border border-purple-500/30">Google Maps API</span>
+                            <span class="px-3 py-1 rounded-lg text-xs font-medium bg-purple-900/40 text-purple-200 border border-purple-500/30">Geospatial Heatmaps</span>
                         </div>
                     </div>
 
@@ -415,12 +421,12 @@
                             <span>Databases & Infrastructure</span>
                         </h3>
                         <div class="flex flex-wrap gap-2">
-                            <span class="skill-tag">MongoDB</span>
-                            <span class="skill-tag">SQLite</span>
-                            <span class="skill-tag">Firebase</span>
-                            <span class="skill-tag">Git & GitHub</span>
-                            <span class="skill-tag">VS Code</span>
-                            <span class="skill-tag">CLI / Bash</span>
+                            <span class="px-3 py-1 rounded-lg text-xs font-medium bg-purple-900/40 text-purple-200 border border-purple-500/30">MongoDB</span>
+                            <span class="px-3 py-1 rounded-lg text-xs font-medium bg-purple-900/40 text-purple-200 border border-purple-500/30">SQLite</span>
+                            <span class="px-3 py-1 rounded-lg text-xs font-medium bg-purple-900/40 text-purple-200 border border-purple-500/30">Firebase</span>
+                            <span class="px-3 py-1 rounded-lg text-xs font-medium bg-purple-900/40 text-purple-200 border border-purple-500/30">Git & GitHub</span>
+                            <span class="px-3 py-1 rounded-lg text-xs font-medium bg-purple-900/40 text-purple-200 border border-purple-500/30">VS Code</span>
+                            <span class="px-3 py-1 rounded-lg text-xs font-medium bg-purple-900/40 text-purple-200 border border-purple-500/30">CLI / Bash</span>
                         </div>
                     </div>
                 </div>
@@ -428,106 +434,69 @@
         </section>
 
         <!-- CONTACT SECTION -->
-        <section id="contact" class="py-20 px-4 max-w-5xl mx-auto">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
-                <!-- Left Details -->
-                <div class="lg:col-span-5 space-y-6">
-                    <div>
-                        <span class="text-purple-400 font-semibold text-xs uppercase tracking-widest">Get In Touch</span>
-                        <h2 class="text-3xl font-bold text-white mt-1">Let's Connect & Collaborate</h2>
-                        <p class="text-slate-400 text-sm mt-2">I am open for research collaborations, engineering opportunities, and open-source civic tech projects.</p>
-                    </div>
+        <section id="contact" class="py-20 px-4 max-w-4xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <span class="text-purple-400 font-semibold text-xs uppercase tracking-widest">Get In Touch</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-white mt-1">Let's Connect & Collaborate</h2>
+                <p class="text-slate-400 text-sm mt-2">I am open for research collaborations, engineering opportunities, and open-source civic tech projects.</p>
+            </div>
 
-                    <div class="space-y-4">
-                        <!-- Email Box -->
-                        <div class="glass-card p-4 rounded-2xl flex items-center justify-between">
-                            <div class="flex items-center gap-3">
-                                <div class="w-10 h-10 rounded-xl bg-purple-600/30 flex items-center justify-center text-purple-300">
-                                    <i class="fa-solid fa-envelope"></i>
-                                </div>
-                                <div class="overflow-hidden">
-                                    <p class="text-[10px] text-slate-400 uppercase font-semibold">Email Address</p>
-                                    <p class="text-xs sm:text-sm font-semibold text-white truncate">jeramieanne.losorata.23@usjr.edu.ph</p>
-                                </div>
-                            </div>
-                            <button onclick="copyToClipboard('jeramieanne.losorata.23@usjr.edu.ph', 'Email copied!')" class="p-2 text-purple-300 hover:text-white transition" title="Copy Email">
-                                <i class="fa-regular fa-copy"></i>
-                            </button>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <!-- Email Box -->
+                <div class="glass-card p-4 rounded-2xl flex items-center justify-between">
+                    <div class="flex items-center gap-3 overflow-hidden">
+                        <div class="w-10 h-10 rounded-xl bg-purple-600/30 flex-shrink-0 flex items-center justify-center text-purple-300">
+                            <i class="fa-solid fa-envelope"></i>
                         </div>
-
-                        <!-- Phone Box -->
-                        <div class="glass-card p-4 rounded-2xl flex items-center justify-between">
-                            <div class="flex items-center gap-3">
-                                <div class="w-10 h-10 rounded-xl bg-purple-600/30 flex items-center justify-center text-purple-300">
-                                    <i class="fa-solid fa-phone"></i>
-                                </div>
-                                <div>
-                                    <p class="text-[10px] text-slate-400 uppercase font-semibold">Phone Contact</p>
-                                    <p class="text-xs sm:text-sm font-semibold text-white">09161612218</p>
-                                </div>
-                            </div>
-                            <button onclick="copyToClipboard('09161612218', 'Phone number copied!')" class="p-2 text-purple-300 hover:text-white transition" title="Copy Phone">
-                                <i class="fa-regular fa-copy"></i>
-                            </button>
-                        </div>
-
-                        <!-- GitHub Link -->
-                        <a href="https://github.com/julmaerlithe" target="_blank" class="glass-card p-4 rounded-2xl flex items-center justify-between group hover:border-purple-400/50 transition">
-                            <div class="flex items-center gap-3">
-                                <div class="w-10 h-10 rounded-xl bg-slate-800 flex items-center justify-center text-white text-lg">
-                                    <i class="fa-brands fa-github"></i>
-                                </div>
-                                <div>
-                                    <p class="text-[10px] text-slate-400 uppercase font-semibold">GitHub Profile</p>
-                                    <p class="text-xs sm:text-sm font-semibold text-purple-300 group-hover:text-white transition">github.com/julmaerlithe</p>
-                                </div>
-                            </div>
-                            <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-white transition"></i>
-                        </a>
-
-                        <!-- Location -->
-                        <div class="glass-card p-4 rounded-2xl flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-xl bg-purple-600/30 flex items-center justify-center text-purple-300">
-                                <i class="fa-solid fa-location-dot"></i>
-                            </div>
-                            <div>
-                                <p class="text-[10px] text-slate-400 uppercase font-semibold">Location</p>
-                                <p class="text-xs sm:text-sm font-semibold text-white">Cebu City, Philippines</p>
-                            </div>
+                        <div class="overflow-hidden">
+                            <p class="text-[10px] text-slate-400 uppercase font-semibold">Email Address</p>
+                            <p class="text-xs sm:text-sm font-semibold text-white truncate">jeramieanne.losorata.23@usjr.edu.ph</p>
                         </div>
                     </div>
+                    <button onclick="copyToClipboard('jeramieanne.losorata.23@usjr.edu.ph', 'Email copied!')" class="p-2 text-purple-300 hover:text-white transition flex-shrink-0" title="Copy Email">
+                        <i class="fa-regular fa-copy"></i>
+                    </button>
                 </div>
 
-                <!-- Right Form -->
-                <div class="lg:col-span-7">
-                    <form onsubmit="handleContactSubmit(event)" class="glass-card p-6 sm:p-8 rounded-3xl space-y-4 border border-purple-500/30">
-                        <h3 class="text-xl font-bold text-white mb-2">Send a Message</h3>
-                        
-                        <div>
-                            <label class="block text-xs font-semibold text-slate-300 uppercase mb-1">Your Name</label>
-                            <input type="text" required placeholder="e.g. Maria Santos" class="w-full bg-navy-950/80 border border-purple-500/30 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-purple-400 transition">
+                <!-- Phone Box -->
+                <div class="glass-card p-4 rounded-2xl flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-purple-600/30 flex-shrink-0 flex items-center justify-center text-purple-300">
+                            <i class="fa-solid fa-phone"></i>
                         </div>
-
                         <div>
-                            <label class="block text-xs font-semibold text-slate-300 uppercase mb-1">Your Email</label>
-                            <input type="email" required placeholder="name@example.com" class="w-full bg-navy-950/80 border border-purple-500/30 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-purple-400 transition">
+                            <p class="text-[10px] text-slate-400 uppercase font-semibold">Phone Contact</p>
+                            <p class="text-xs sm:text-sm font-semibold text-white">09161612218</p>
                         </div>
+                    </div>
+                    <button onclick="copyToClipboard('09161612218', 'Phone number copied!')" class="p-2 text-purple-300 hover:text-white transition flex-shrink-0" title="Copy Phone">
+                        <i class="fa-regular fa-copy"></i>
+                    </button>
+                </div>
 
+                <!-- GitHub Link -->
+                <a href="https://github.com/julmaerlithe" target="_blank" class="glass-card p-4 rounded-2xl flex items-center justify-between group hover:border-purple-400/50 transition">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-slate-800 flex-shrink-0 flex items-center justify-center text-white text-lg">
+                            <i class="fa-brands fa-github"></i>
+                        </div>
                         <div>
-                            <label class="block text-xs font-semibold text-slate-300 uppercase mb-1">Subject</label>
-                            <input type="text" required placeholder="Project Collaboration / Inquiry" class="w-full bg-navy-950/80 border border-purple-500/30 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-purple-400 transition">
+                            <p class="text-[10px] text-slate-400 uppercase font-semibold">GitHub Profile</p>
+                            <p class="text-xs sm:text-sm font-semibold text-purple-300 group-hover:text-white transition">github.com/julmaerlithe</p>
                         </div>
+                    </div>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-white transition flex-shrink-0"></i>
+                </a>
 
-                        <div>
-                            <label class="block text-xs font-semibold text-slate-300 uppercase mb-1">Message</label>
-                            <textarea rows="4" required placeholder="Write your message here..." class="w-full bg-navy-950/80 border border-purple-500/30 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-purple-400 transition resize-none"></textarea>
-                        </div>
-
-                        <button type="submit" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-purple-600 via-fuchsia-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-bold text-sm shadow-lg shadow-purple-600/30 transition flex items-center justify-center gap-2">
-                            <i class="fa-solid fa-paper-plane"></i>
-                            <span>Send Message</span>
-                        </button>
-                    </form>
+                <!-- Location -->
+                <div class="glass-card p-4 rounded-2xl flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-purple-600/30 flex-shrink-0 flex items-center justify-center text-purple-300">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <div>
+                        <p class="text-[10px] text-slate-400 uppercase font-semibold">Location</p>
+                        <p class="text-xs sm:text-sm font-semibold text-white">Cebu City, Philippines</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -576,97 +545,10 @@
             </div>
 
             <div class="pt-4 border-t border-purple-500/20 flex flex-wrap gap-3 justify-end">
-                <button onclick="openMediaStudioForSelected()" class="px-4 py-2 rounded-xl border border-purple-400/40 text-purple-300 hover:bg-purple-600/20 text-xs font-semibold transition flex items-center gap-2">
-                    <i class="fa-solid fa-upload"></i>
-                    <span>Upload Custom Photo/Video</span>
-                </button>
                 <a id="pModalGithub" href="https://github.com/julmaerlithe" target="_blank" class="px-5 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-700 text-white text-xs font-bold transition flex items-center gap-2">
                     <i class="fa-brands fa-github text-sm"></i>
                     <span>View Repository on GitHub</span>
                 </a>
-            </div>
-        </div>
-    </div>
-
-
-    <!-- MODAL 2: MEDIA UPLOAD & STUDIO MANAGER MODAL -->
-    <div id="mediaStudioModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-navy-950/80 backdrop-blur-md">
-        <div class="glass-card max-w-2xl w-full rounded-3xl border border-purple-400/40 shadow-2xl p-6 sm:p-8 relative space-y-6">
-            <button onclick="closeMediaStudio()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-800 text-slate-300 hover:text-white flex items-center justify-center transition">
-                <i class="fa-solid fa-xmark text-lg"></i>
-            </button>
-
-            <div class="flex items-center gap-3">
-                <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-purple-600 to-indigo-600 flex items-center justify-center text-white text-xl">
-                    <i class="fa-solid fa-photo-film"></i>
-                </div>
-                <div>
-                    <h2 class="text-xl sm:text-2xl font-bold text-white">Media Studio Manager</h2>
-                    <p class="text-xs text-slate-400">Upload photos, demo videos, or certificate images for any section.</p>
-                </div>
-            </div>
-
-            <div class="space-y-4">
-                <div>
-                    <label class="block text-xs font-semibold text-slate-300 uppercase mb-1">Target Section / Item</label>
-                    <select id="mediaTargetSelect" class="w-full bg-navy-950 border border-purple-500/40 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none">
-                        <option value="profile">Profile Headshot Photo</option>
-                        <optgroup label="Projects">
-                            <option value="proj_agapai">AGAPAI Disaster Mapping</option>
-                            <option value="proj_speedcare">SPEEDCARE Clinical Triage</option>
-                            <option value="proj_occupancy">Automated Seat Occupancy Tracking</option>
-                            <option value="proj_agripulse">AGRIPULSE PH Analytics</option>
-                            <option value="proj_cerv">CERV Emergency Reporting</option>
-                            <option value="proj_braille">BRAILLE TECH IoT Device</option>
-                            <option value="proj_pasadanet">PASADANET USJR Hackathon</option>
-                        </optgroup>
-                        <optgroup label="Certifications">
-                            <option value="cert_psc">Philippine Startup Challenge Certificate</option>
-                            <option value="cert_ibm_sec">IBM Cloud Security</option>
-                            <option value="cert_ibm_py">IBM Python for Data Science</option>
-                            <option value="cert_ibm_sust">IBM Sustainability & Tech</option>
-                            <option value="cert_dc_fe">DataCamp Feature Engineering</option>
-                            <option value="cert_dc_genai">DataCamp Google Cloud GenAI</option>
-                            <option value="cert_dc_ai">DataCamp AI Fundamentals</option>
-                            <option value="cert_dc_eu">DataCamp EU AI Act Literacy</option>
-                            <option value="cert_wadhwani">Wadhwani Foundation Certificate</option>
-                        </optgroup>
-                    </select>
-                </div>
-
-                <div>
-                    <label class="block text-xs font-semibold text-slate-300 uppercase mb-1">Media Type</label>
-                    <div class="flex gap-4">
-                        <label class="flex items-center gap-2 text-xs text-slate-200 cursor-pointer">
-                            <input type="radio" name="mediaType" value="image" checked onchange="toggleMediaInputType('image')" class="accent-purple-500">
-                            <span>Image (File / URL)</span>
-                        </label>
-                        <label class="flex items-center gap-2 text-xs text-slate-200 cursor-pointer">
-                            <input type="radio" name="mediaType" value="video" onchange="toggleMediaInputType('video')" class="accent-purple-500">
-                            <span>Video Embed URL (YouTube/Vimeo)</span>
-                        </label>
-                    </div>
-                </div>
-
-                <!-- Direct URL Input -->
-                <div id="mediaUrlBox">
-                    <label class="block text-xs font-semibold text-slate-300 uppercase mb-1">Media URL</label>
-                    <input type="text" id="mediaUrlInput" placeholder="https://images.unsplash.com/... or https://youtube.com/embed/..." class="w-full bg-navy-950 border border-purple-500/40 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none">
-                </div>
-
-                <!-- Local File Upload Box -->
-                <div id="mediaFileBox" class="border-2 border-dashed border-purple-500/40 hover:border-purple-400 rounded-2xl p-6 text-center cursor-pointer transition bg-purple-900/10 relative" onclick="document.getElementById('mediaFileInput').click()">
-                    <input type="file" id="mediaFileInput" accept="image/*" class="hidden" onchange="handleFileSelect(event)">
-                    <i class="fa-solid fa-cloud-arrow-up text-3xl text-purple-400 mb-2"></i>
-                    <p class="text-xs font-bold text-white">Click to Select Local Image File</p>
-                    <p class="text-[11px] text-slate-400 mt-1">Supports PNG, JPG, WEBP (Saved locally in browser storage)</p>
-                    <p id="selectedFileName" class="text-xs text-purple-300 mt-2 font-semibold"></p>
-                </div>
-            </div>
-
-            <div class="flex justify-end gap-3 pt-2">
-                <button onclick="closeMediaStudio()" class="px-4 py-2 rounded-xl border border-slate-700 text-slate-300 text-xs font-semibold hover:bg-slate-800 transition">Cancel</button>
-                <button onclick="saveMediaCustomization()" class="px-5 py-2 rounded-xl bg-purple-600 hover:bg-purple-700 text-white text-xs font-bold transition shadow-lg shadow-purple-600/30">Save Media</button>
             </div>
         </div>
     </div>
@@ -685,7 +567,7 @@
                 badge: 'Top 25 Philippine Startup Challenge',
                 description: 'Engineered multi-task transformer NLP pipelines (XLM-RoBERTa/mDeBERTa) to classify real-time disaster posts, extract actionable intent, and route volunteer resources during natural calamities. Recognized in the Top 25 of the Philippine Startup Challenge.',
                 badges: ['XLM-RoBERTa', 'mDeBERTa', 'PyTorch', 'Hugging Face', 'FastAPI', 'NLP'],
-                defaultImg: 'https://images.unsplash.com/photo-1542744371-661b2486c97a?auto=format&fit=crop&q=80&w=800',
+                defaultImg: 'agapai.png',
             },
             {
                 id: 'proj_speedcare',
@@ -707,7 +589,7 @@
                 badge: 'Computer Vision',
                 description: 'Developed a software-driven computer vision occupancy tracking system leveraging Histogram of Oriented Gradients (HOG) feature extraction and Support Vector Machines (SVM) with a non-linear Radial Basis Function (RBF) kernel.',
                 badges: ['OpenCV', 'Python', 'HOG Features', 'SVM (RBF Kernel)', 'Computer Vision'],
-                defaultImg: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800',
+                defaultImg: 'seat-occupancy.jpg',
             },
             {
                 id: 'proj_agripulse',
@@ -718,7 +600,7 @@
                 badge: 'Data Analytics & API',
                 description: 'Built a FastAPI analytics backend evaluating 2021–2025 Philippine Statistics Authority (PSA) market data with marketing margins and Granger causality tests to assess agricultural price transparency and supply vulnerabilities.',
                 badges: ['FastAPI', 'Pandas', 'Statsmodels', 'Granger Causality', 'Python Analytics'],
-                defaultImg: 'https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&q=80&w=800',
+                defaultImg: 'Farm-gate.jpg',
             },
             {
                 id: 'proj_cerv',
@@ -729,7 +611,7 @@
                 badge: 'Mobile & Web App',
                 description: 'Co-developed a dual-mode community emergency reporting mobile and web application featuring multi-tier user verification, real-time report tracking, and Google Maps API hotspot clustering.',
                 badges: ['Node.js', 'Express.js', 'Google Maps API', 'Firebase', 'Hotspot Clustering'],
-                defaultImg: 'https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&q=80&w=800',
+                defaultImg: 'cerv dashboard.png',
             },
             {
                 id: 'proj_braille',
@@ -740,7 +622,7 @@
                 badge: 'Hardware & IoT',
                 description: 'Designed an ESP32-based assistive device translating digital text into tactile Braille in real time using MQTT communication protocols and micro servo motors (SG90) for accessibility.',
                 badges: ['ESP32', 'MQTT Protocols', 'C/C++', 'Micro Servos (SG90)', 'Embedded IoT'],
-                defaultImg: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800',
+                defaultImg: 'Braille system.png',
             },
             {
                 id: 'proj_pasadanet',
@@ -751,7 +633,7 @@
                 badge: 'USJR Hackathon Project',
                 description: 'Built a dual-mode mobile web application addressing public utility vehicle (PUV) economics in Cebu, featuring a route profitability heatmap, driver take-home predictor, and commuter waiting beacon.',
                 badges: ['React', 'Node.js', 'Geospatial Heatmaps', 'Predictive Modeling', 'Hackathon'],
-                defaultImg: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=800',
+                defaultImg: 'pasada_net.png',
             }
         ];
 
@@ -764,7 +646,7 @@
                 date: 'September 2026 - Present',
                 category: 'awards',
                 icon: 'fa-trophy',
-                defaultImg: 'https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?auto=format&fit=crop&q=80&w=800'
+                defaultImg: 'psc-top 25.png'
             },
             {
                 id: 'cert_ibm_sec',
@@ -773,7 +655,7 @@
                 date: 'October 2026',
                 category: 'ibm',
                 icon: 'fa-shield-halved',
-                defaultImg: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=800'
+                defaultImg: 'cloud security.png'
             },
             {
                 id: 'cert_ibm_py',
@@ -782,7 +664,7 @@
                 date: 'October 2026',
                 category: 'ibm',
                 icon: 'fa-brands fa-python',
-                defaultImg: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=800'
+                defaultImg: 'data science-python.png'
             },
             {
                 id: 'cert_ibm_sust',
@@ -791,7 +673,7 @@
                 date: 'October 2026',
                 category: 'ibm',
                 icon: 'fa-seedling',
-                defaultImg: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800'
+                defaultImg: 'sustainability.png'
             },
             {
                 id: 'cert_dc_fe',
@@ -800,7 +682,7 @@
                 date: 'Completed August 29, 2026',
                 category: 'datacamp',
                 icon: 'fa-gears',
-                defaultImg: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800'
+                defaultImg: 'Feature Engineering.png'
             },
             {
                 id: 'cert_dc_genai',
@@ -809,7 +691,7 @@
                 date: 'Completed August 29, 2026',
                 category: 'datacamp',
                 icon: 'fa-wand-magic-sparkles',
-                defaultImg: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=800'
+                defaultImg: 'google cloud.png'
             },
             {
                 id: 'cert_dc_ai',
@@ -818,7 +700,7 @@
                 date: 'Certified August 29, 2026',
                 category: 'datacamp',
                 icon: 'fa-robot',
-                defaultImg: 'https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&q=80&w=800'
+                defaultImg: 'AI fundamentals.png'
             },
             {
                 id: 'cert_dc_eu',
@@ -827,7 +709,7 @@
                 date: 'Certified August 28, 2026',
                 category: 'datacamp',
                 icon: 'fa-scale-balanced',
-                defaultImg: 'https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&q=80&w=800'
+                defaultImg: 'EU literacy.png'
             },
             {
                 id: 'cert_wadhwani',
@@ -836,54 +718,27 @@
                 date: 'Completed December 15, 2025',
                 category: 'awards',
                 icon: 'fa-chart-line',
-                defaultImg: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800'
+                defaultImg: 'wadhwani.png'
             }
         ];
 
-        // Global State & Storage Key
-        const LOCAL_STORAGE_KEY = 'julmaerlithe_portfolio_custom_media';
-        let mediaStorage = {};
-        let activeSelectedProjectId = null;
-        let activeUploadedFileData = null;
-
         // Initialize App
         window.addEventListener('DOMContentLoaded', () => {
-            loadCustomMediaFromStorage();
             renderProjects('all');
             renderCertifications('all');
             initSparkleCanvas();
-            updateProfileMediaIfCustom();
         });
 
-        function loadCustomMediaFromStorage() {
-            try {
-                const stored = localStorage.getItem(LOCAL_STORAGE_KEY);
-                if (stored) {
-                    mediaStorage = JSON.parse(stored);
-                }
-            } catch (e) {
-                console.warn('LocalStorage error:', e);
-            }
+        // Helper check for video files
+        function isVideoUrl(url = '') {
+            return /\.(mp4|webm|ogg|mov)(?:$|[?#])/i.test(String(url)) || /youtube\.com|youtu\.be|vimeo\.com/i.test(String(url));
         }
 
-        function saveCustomMediaToStorage() {
-            try {
-                localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(mediaStorage));
-            } catch (e) {
-                console.warn('LocalStorage save error:', e);
-            }
+        function isPdfUrl(url = '') {
+            return /\.pdf(?:$|[?#])/i.test(String(url)) || String(url).startsWith('data:application/pdf');
         }
 
-        function updateProfileMediaIfCustom() {
-            if (mediaStorage['profile']) {
-                const imgElem = document.getElementById('heroProfileImg');
-                if (imgElem) {
-                    imgElem.src = mediaStorage['profile'].url;
-                }
-            }
-        }
-
-        // Render Projects
+        // Render Projects with Autoplay Video Previews
         function renderProjects(filter = 'all') {
             const grid = document.getElementById('projectsGrid');
             grid.innerHTML = '';
@@ -891,32 +746,41 @@
             const filtered = projectsData.filter(p => filter === 'all' || p.category.includes(filter));
 
             filtered.forEach(p => {
-                const customMedia = mediaStorage[p.id];
-                const displayImg = customMedia ? customMedia.url : p.defaultImg;
-                const isVideo = customMedia && customMedia.type === 'video';
+                const displayImg = p.defaultImg;
+                const isVid = isVideoUrl(displayImg);
 
                 const card = document.createElement('div');
                 card.className = 'glass-card glass-card-hover rounded-3xl overflow-hidden flex flex-col justify-between transition duration-300 border border-purple-500/20 group';
                 
+                let mediaHtml = '';
+                if (isVid) {
+                    mediaHtml = `
+                        <video class="w-full h-full object-cover group-hover:scale-105 transition duration-500" autoplay loop muted playsinline preload="metadata">
+                            <source src="${displayImg}" type="video/mp4">
+                        </video>
+                        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                            <div class="w-10 h-10 rounded-full bg-purple-600/80 text-white flex items-center justify-center text-sm shadow-lg backdrop-blur-sm opacity-80 group-hover:opacity-100 group-hover:scale-110 transition">
+                                <i class="fa-solid fa-play ml-0.5"></i>
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    mediaHtml = `
+                        <img src="${displayImg}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'">
+                    `;
+                }
+
                 card.innerHTML = `
                     <div>
-                        <!-- Thumbnail Image Container -->
+                        <!-- Thumbnail Container -->
                         <div class="relative h-48 w-full bg-navy-900 overflow-hidden cursor-pointer" onclick="openProjectModal('${p.id}')">
-                            <img src="${displayImg}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='${p.defaultImg}'">
+                            ${mediaHtml}
                             <div class="absolute inset-0 bg-gradient-to-t from-navy-950 via-transparent to-transparent opacity-80"></div>
                             
                             <!-- Category Badge -->
                             <span class="absolute top-3 left-3 bg-navy-900/90 text-purple-300 border border-purple-400/30 text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider backdrop-blur-md">
                                 ${p.badge}
                             </span>
-
-                            ${isVideo ? `
-                                <div class="absolute inset-0 flex items-center justify-center">
-                                    <div class="w-10 h-10 rounded-full bg-purple-600/80 text-white flex items-center justify-center text-sm shadow-lg backdrop-blur-sm">
-                                        <i class="fa-solid fa-play ml-0.5"></i>
-                                    </div>
-                                </div>
-                            ` : ''}
                         </div>
 
                         <!-- Content Body -->
@@ -945,11 +809,8 @@
 
                         <div class="flex items-center justify-between pt-2 border-t border-purple-500/10">
                             <button onclick="openProjectModal('${p.id}')" class="text-xs font-bold text-purple-300 hover:text-white flex items-center gap-1.5 transition">
-                                <span>View Details & Media</span>
+                                <span>View Details & Demo</span>
                                 <i class="fa-solid fa-circle-chevron-right text-xs"></i>
-                            </button>
-                            <button onclick="openMediaStudioForId('${p.id}')" class="p-1.5 text-slate-400 hover:text-purple-300 transition" title="Add/Change Photo or Video">
-                                <i class="fa-solid fa-pen-to-square text-xs"></i>
                             </button>
                         </div>
                     </div>
@@ -978,8 +839,7 @@
             const filtered = certsData.filter(c => filter === 'all' || c.category === filter);
 
             filtered.forEach(c => {
-                const customMedia = mediaStorage[c.id];
-                const displayImg = customMedia ? customMedia.url : c.defaultImg;
+                const displayImg = c.defaultImg;
 
                 const card = document.createElement('div');
                 card.className = 'glass-card glass-card-hover rounded-2xl p-5 border border-purple-500/20 flex flex-col justify-between space-y-4 group';
@@ -1000,10 +860,8 @@
 
                         <!-- Cert Image Thumbnail Preview -->
                         <div class="w-full h-32 rounded-xl overflow-hidden bg-navy-950 border border-purple-500/20 relative group-hover:border-purple-400/40 transition cursor-pointer" onclick="openCertImageModal('${displayImg}', '${c.title}')">
-                            <img src="${displayImg}" alt="${c.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" onerror="this.src='${c.defaultImg}'">
-                            <div class="absolute inset-0 bg-navy-950/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
-                                <span class="bg-purple-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-full shadow">View Proof</span>
-                            </div>
+                            ${isPdfUrl(displayImg) ? `<div class="w-full h-full flex flex-col items-center justify-center gap-2 text-purple-200"><i class="fa-solid fa-file-pdf text-3xl"></i><span class="text-xs font-semibold">PDF certificate</span><span class="text-[10px] text-slate-400">Open document</span></div>` : `<img src="${displayImg}" alt="${c.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" onerror="this.style.display='none'">`}
+                            <div class="absolute inset-0 bg-navy-950/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"><span class="bg-purple-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-full shadow">View Proof</span></div>
                         </div>
                     </div>
 
@@ -1012,10 +870,10 @@
                             <i class="fa-regular fa-image text-xs"></i>
                             <span>View Certificate</span>
                         </button>
-                        <button onclick="openMediaStudioForId('${c.id}')" class="text-xs text-slate-400 hover:text-purple-300 transition flex items-center gap-1">
-                            <i class="fa-solid fa-upload text-[10px]"></i>
-                            <span>Upload Scan</span>
-                        </button>
+                        <a href="${displayImg}" target="_blank" rel="noopener noreferrer" class="text-xs text-slate-400 hover:text-purple-300 transition flex items-center gap-1">
+                            <i class="fa-solid ${isPdfUrl(displayImg) ? 'fa-file-pdf' : 'fa-arrow-up-right-from-square'} text-[10px]"></i>
+                            <span>${isPdfUrl(displayImg) ? 'Open PDF' : 'Open file'}</span>
+                        </a>
                     </div>
                 `;
 
@@ -1034,15 +892,24 @@
             renderCertifications(filter);
         }
 
+        function renderMediaPreview(container, url, video, title) {
+            const safeTitle = String(title || 'Portfolio media').replace(/[<>"']/g, '');
+            if (isPdfUrl(url)) {
+                container.innerHTML = `<iframe src="${url}#toolbar=1&navpanes=0" title="${safeTitle}" class="w-full h-full" loading="lazy"></iframe><a href="${url}" target="_blank" rel="noopener noreferrer" class="absolute bottom-3 right-3 px-3 py-2 rounded-lg bg-purple-700 text-white text-xs font-semibold shadow-lg">Open PDF in new tab</a>`;
+            } else if (video) {
+                container.innerHTML = `<video src="${url}" controls autoplay loop muted playsinline class="w-full h-full object-contain bg-black"><source src="${url}" type="video/mp4"></video><a href="${url}" target="_blank" rel="noopener noreferrer" class="absolute bottom-3 right-3 px-3 py-2 rounded-lg bg-purple-700 text-white text-xs font-semibold shadow-lg">Open video</a>`;
+            } else {
+                container.innerHTML = `<img src="${url}" alt="${safeTitle}" class="w-full h-full object-contain rounded-2xl" onerror="this.style.display='none'; this.parentElement.insertAdjacentHTML('beforeend','<p class=\'p-4 text-sm text-slate-300\'>Media file not found. Make sure the file is uploaded to GitHub with the exact filename.</p>')">`;
+            }
+        }
+
         // Project Modal Handling
         function openProjectModal(projectId) {
             const proj = projectsData.find(p => p.id === projectId);
             if (!proj) return;
 
-            activeSelectedProjectId = projectId;
-            const customMedia = mediaStorage[projectId];
-            const displayUrl = customMedia ? customMedia.url : proj.defaultImg;
-            const isVideo = customMedia && customMedia.type === 'video';
+            const displayUrl = proj.defaultImg;
+            const isVid = isVideoUrl(displayUrl);
 
             document.getElementById('pModalCategory').innerText = proj.badge;
             document.getElementById('pModalTitle').innerText = proj.title;
@@ -1053,17 +920,7 @@
             badgesContainer.innerHTML = proj.badges.map(b => `<span class="text-xs font-semibold bg-purple-900/40 text-purple-200 border border-purple-500/30 px-3 py-1 rounded-xl">${b}</span>`).join('');
 
             const mediaBox = document.getElementById('pModalMediaContainer');
-            if (isVideo) {
-                // If youtube embed or generic video
-                if (displayUrl.includes('youtube.com') || displayUrl.includes('youtu.be')) {
-                    const embedUrl = displayUrl.replace('watch?v=', 'embed/');
-                    mediaBox.innerHTML = `<iframe src="${embedUrl}" class="w-full h-full rounded-2xl" frameborder="0" allowfullscreen></iframe>`;
-                } else {
-                    mediaBox.innerHTML = `<video src="${displayUrl}" controls class="w-full h-full object-contain rounded-2xl"></video>`;
-                }
-            } else {
-                mediaBox.innerHTML = `<img src="${displayUrl}" alt="${proj.title}" class="w-full h-full object-cover rounded-2xl" onerror="this.src='${proj.defaultImg}'">`;
-            }
+            renderMediaPreview(mediaBox, displayUrl, isVid, proj.title);
 
             const modal = document.getElementById('projectModal');
             modal.classList.remove('hidden');
@@ -1078,7 +935,11 @@
 
         function openCertImageModal(imgUrl, title) {
             const mediaBox = document.getElementById('pModalMediaContainer');
-            mediaBox.innerHTML = `<img src="${imgUrl}" alt="${title}" class="w-full h-full object-contain rounded-2xl">`;
+            if (isPdfUrl(imgUrl)) {
+                mediaBox.innerHTML = `<iframe src="${imgUrl}#toolbar=1&navpanes=0" title="${title}" class="w-full h-full rounded-2xl" loading="lazy"></iframe><a href="${imgUrl}" target="_blank" rel="noopener noreferrer" class="absolute bottom-3 right-3 px-3 py-2 rounded-lg bg-purple-700 text-white text-xs font-semibold shadow-lg">Open PDF in new tab</a>`;
+            } else {
+                mediaBox.innerHTML = `<img src="${imgUrl}" alt="${title}" class="w-full h-full object-contain rounded-2xl">`;
+            }
 
             document.getElementById('pModalCategory').innerText = 'Verified Credential';
             document.getElementById('pModalTitle').innerText = title;
@@ -1091,88 +952,6 @@
             modal.classList.add('flex');
         }
 
-        // Media Studio Handling
-        function openMediaStudio() {
-            const modal = document.getElementById('mediaStudioModal');
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
-        }
-
-        function openMediaStudioForId(targetId) {
-            document.getElementById('mediaTargetSelect').value = targetId;
-            openMediaStudio();
-        }
-
-        function openMediaStudioForSelected() {
-            closeProjectModal();
-            if (activeSelectedProjectId) {
-                openMediaStudioForId(activeSelectedProjectId);
-            } else {
-                openMediaStudio();
-            }
-        }
-
-        function closeMediaStudio() {
-            const modal = document.getElementById('mediaStudioModal');
-            modal.classList.add('hidden');
-            modal.classList.remove('flex');
-            activeUploadedFileData = null;
-            document.getElementById('selectedFileName').innerText = '';
-            document.getElementById('mediaUrlInput').value = '';
-        }
-
-        function toggleMediaInputType(type) {
-            const urlBox = document.getElementById('mediaUrlBox');
-            const fileBox = document.getElementById('mediaFileBox');
-            if (type === 'video') {
-                urlBox.classList.remove('hidden');
-                fileBox.classList.add('hidden');
-            } else {
-                urlBox.classList.remove('hidden');
-                fileBox.classList.remove('hidden');
-            }
-        }
-
-        function handleFileSelect(e) {
-            const file = e.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(evt) {
-                    activeUploadedFileData = evt.target.result;
-                    document.getElementById('selectedFileName').innerText = `Selected: ${file.name} (${Math.round(file.size/1024)} KB)`;
-                };
-                reader.readAsDataURL(file);
-            }
-        }
-
-        function saveMediaCustomization() {
-            const target = document.getElementById('mediaTargetSelect').value;
-            const mediaType = document.querySelector('input[name="mediaType"]:checked').value;
-            const urlInput = document.getElementById('mediaUrlInput').value.trim();
-
-            let finalUrl = activeUploadedFileData || urlInput;
-
-            if (!finalUrl) {
-                showToast('Please provide an image/video URL or upload a local file.', 'error');
-                return;
-            }
-
-            mediaStorage[target] = {
-                type: mediaType,
-                url: finalUrl,
-                updatedAt: new Date().toISOString()
-            };
-
-            saveCustomMediaToStorage();
-            closeMediaStudio();
-            showToast('Media updated & saved successfully!');
-
-            // Refresh UI
-            renderProjects('all');
-            renderCertifications('all');
-            updateProfileMediaIfCustom();
-        }
-
         // Utility: Copy to Clipboard & Toast
         function copyToClipboard(text, message) {
             const tempInput = document.createElement('input');
@@ -1182,12 +961,6 @@
             document.execCommand('copy');
             document.body.removeChild(tempInput);
             showToast(message || 'Copied to clipboard!');
-        }
-
-        function handleContactSubmit(e) {
-            e.preventDefault();
-            showToast('Thank you! Your message has been sent to Jeramie Anne.');
-            e.target.reset();
         }
 
         function showToast(msg, type = 'success') {
@@ -1202,7 +975,7 @@
             setTimeout(() => {
                 toast.classList.add('opacity-0', '-translate-y-2');
                 setTimeout(() => toast.remove(), 300);
-            }, 3500);
+            }, 4000);
         }
 
         // Particle Canvas Sparkle Effect
