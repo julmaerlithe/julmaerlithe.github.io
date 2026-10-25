@@ -1,1022 +1,639 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jeramie Anne Losorata | Portfolio</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        navy: {
-                            950: '#050814',
-                            900: '#080E26',
-                            800: '#0F173A',
-                            700: '#172250',
-                        },
-                        violetGlow: {
-                            400: '#C084FC',
-                            500: '#A855F7',
-                            600: '#9333EA',
-                            700: '#7E22CE',
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
-                        serif: ['Playfair Display', 'Georgia', 'serif'],
-                    },
-                    animation: {
-                        'pulse-glow': 'pulseGlow 3s infinite ease-in-out',
-                        'float': 'float 6s infinite ease-in-out',
-                        'sparkle': 'sparkle 2s infinite ease-in-out',
-                    },
-                    keyframes: {
-                        pulseGlow: {
-                            '0%, 100%': { opacity: 0.6, transform: 'scale(1)' },
-                            '50%': { opacity: 1, transform: 'scale(1.05)' },
-                        },
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0px)' },
-                            '50%': { transform: 'translateY(-10px)' },
-                        },
-                        sparkle: {
-                            '0%, 100%': { opacity: 0.3, transform: 'scale(0.8)' },
-                            '50%': { opacity: 1, transform: 'scale(1.2)' },
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #050814;
-            color: #E2E8F0;
-            overflow-x: hidden;
-        }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Jeramie Anne Losorata – Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Caveat:wght@600;700&family=Space+Mono:wght@400;700&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
-        /* Professional portfolio refinements */
-        html { scroll-padding-top: 100px; }
-        body { line-height: 1.65; }
-        input, textarea, select, button, a { -webkit-tap-highlight-color: transparent; }
-        input:focus-visible, textarea:focus-visible, select:focus-visible, button:focus-visible, a:focus-visible { outline: 2px solid #C084FC; outline-offset: 3px; }
-        @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
-        }
+<style>
+:root{--paper:#f6f0e1;--card:#fffaf0;--ink:#25251d;--muted:#6a6858;--line:#d9d1ba;--olive:#6e7d3b;--olive2:#dfe6c4;--pink:#ee7fb0;--pink2:#f7cfe0;--peach:#fbd9b8;--orange:#f08a3c;--blue:#1f4e9c;
+--win:var(--card);--soft:#f3ecd9;--bar:var(--olive);
+--display:'Bricolage Grotesque',Inter,sans-serif;--script:Caveat,cursive;--mono:'Space Mono',monospace;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box;margin:0}
+html,body{height:100%}
+body{font:16px/1.55 Inter,system-ui,sans-serif;color:var(--ink);overflow:hidden;background-color:var(--paper);
+background-image:linear-gradient(rgba(110,100,60,.11) 1px,transparent 1px),linear-gradient(90deg,rgba(110,100,60,.11) 1px,transparent 1px);background-size:38px 38px}
 
-        /* Glowing Aura Canvas & Ambient Overlay */
-        .glow-aura {
-            background: radial-gradient(circle at 50% 30%, rgba(168, 85, 247, 0.25) 0%, rgba(147, 51, 234, 0.1) 45%, rgba(5, 8, 20, 0) 70%);
-        }
+/* WELCOME: lanyard ID card */
+.welcome{position:fixed;inset:0;z-index:50;display:grid;place-items:center;padding:16px;overflow:auto;background-color:var(--paper);
+background-image:linear-gradient(rgba(110,100,60,.11) 1px,transparent 1px),linear-gradient(90deg,rgba(110,100,60,.11) 1px,transparent 1px);background-size:38px 38px;transition:opacity .45s}
+.welcome.off{opacity:0;pointer-events:none}
+.wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:clamp(24px,6vw,80px);width:min(1000px,100%);animation:fadeUp .9s ease-out both}
+.lanyard{position:relative;display:flex;flex-direction:column;align-items:center;margin-top:-40px;transform-origin:50% 0;animation:swing 5s ease-in-out infinite}
+@keyframes swing{50%{transform:rotate(1.6deg)}}
+.strap{width:26px;height:110px;background:linear-gradient(90deg,#dcdcd6,#fff,#cfcfc8)}
+.clip{width:36px;height:34px;margin-top:-4px;border-radius:5px 5px 9px 9px;background:linear-gradient(90deg,#8d8d8d,#e8e8e8,#8d8d8d);box-shadow:0 2px 4px rgba(0,0,0,.3)}
+.idcard{position:relative;width:min(330px,88vw);margin-top:-10px;padding:22px 22px 18px;border-radius:20px;background:#ebe8de;border:2px solid #b9b6aa;box-shadow:0 20px 40px rgba(60,50,20,.28),inset 0 0 0 6px #f4f2ea}
+.idcard .top{display:flex;justify-content:space-between;align-items:flex-start}
+.idcard h2{font:800 2.1rem/.92 var(--display);color:var(--blue);letter-spacing:-.02em}
+.idcard .no{font:400 .62rem var(--mono);color:var(--blue);letter-spacing:.08em}
+.idcard .sch{margin:6px 0 14px;font:700 .6rem var(--mono);color:var(--blue);letter-spacing:.06em}
+.idrow{display:grid;grid-template-columns:1fr 112px;gap:14px}
+.idrow label{display:block;margin-top:6px;font:700 .58rem var(--mono);color:var(--blue);letter-spacing:.1em}
+.idrow b{display:block;border-bottom:1px solid #b9b6aa;font:700 1.3rem/1.15 var(--script);color:#2a2a2a}
+.idrow img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top;border:2px solid #666;border-radius:8px;transform:rotate(3deg);box-shadow:0 6px 14px rgba(0,0,0,.3)}
+.idcard .foot{display:flex;justify-content:space-between;align-items:flex-end;gap:10px;margin-top:16px;font:400 .56rem/1.4 var(--mono);color:var(--blue)}
+.logo{display:grid;place-items:center;width:54px;height:54px;border:3px solid var(--blue);border-radius:50%;font:800 1.9rem var(--script);color:var(--blue);flex:none}
+.scrib{position:absolute;z-index:-1;width:190px;fill:none;stroke:var(--blue);stroke-width:7;stroke-linecap:round;stroke-linejoin:round}
+.wtext{max-width:430px}
+.wtext .hi{font:700 .8rem var(--mono);letter-spacing:.14em;color:var(--olive)}
+.wtext h1{position:relative;margin:.3rem 0 1.4rem;font:800 clamp(3.8rem,13vw,7rem)/.82 var(--display);color:var(--pink);letter-spacing:-.04em}
+.wtext h1 em{position:absolute;left:4px;bottom:-.55rem;font:700 clamp(2.2rem,7vw,3.6rem)/1 var(--script);letter-spacing:0;color:var(--ink);text-shadow:0 0 0 var(--paper),2px 2px 0 var(--paper),-2px -2px 0 var(--paper)}
+.wtext .sub{font:700 1.05rem var(--display)}
+.wtext p{margin-top:.5rem;color:var(--muted)}
 
-        .glass-card {
-            background: rgba(15, 23, 58, 0.6);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(168, 85, 247, 0.2);
-        }
+/* DESKTOP */
+.desk{position:fixed;inset:0}
+.desk::before{content:"PORT\A FOLIO";white-space:pre;position:absolute;top:50%;left:50%;transform:translate(-50%,-52%);width:100%;text-align:center;font:800 clamp(6rem,24vw,19rem)/.8 var(--display);letter-spacing:-.05em;color:var(--pink2);pointer-events:none}
+.desk::after{content:"//PORTFOLIO 2026 · @JULMAERLITHE";position:absolute;left:14px;top:50%;transform:rotate(-90deg) translateX(50%);transform-origin:0 0;font:400 .66rem var(--mono);letter-spacing:.12em;color:var(--muted);white-space:nowrap}
+.hero{position:absolute;top:44%;left:50%;transform:translate(-50%,-50%);width:min(92vw,560px);border:2.5px solid var(--ink);border-radius:12px;background:var(--card);box-shadow:7px 7px 0 var(--ink);overflow:hidden;text-align:left}
+.hero .tb{display:flex;align-items:center;gap:8px;padding:7px 12px;background:var(--olive);color:#fff;font:700 .74rem var(--mono)}
+.hero .tb i{width:12px;height:12px;border:1.5px solid var(--ink);border-radius:3px;background:var(--pink2)}
+.hero .hb{display:grid;grid-template-columns:104px 1fr;gap:18px;align-items:center;padding:20px 22px}
+.hero .hb img{width:104px;height:104px;object-fit:cover;object-position:top;border:3px solid var(--olive);border-radius:50%}
+.hero small{font:700 1.5rem var(--script);color:var(--olive)}
+.hero h1{font:800 clamp(1.9rem,6vw,2.7rem)/.95 var(--display);color:var(--orange);letter-spacing:-.02em}
+.hero h2{margin-top:.4rem;font:700 .95rem var(--display)}
+.hero p{margin:.4rem 0 0;font-size:.9rem;color:var(--muted)}
+.hero .cta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:12px 22px;background:var(--olive);border-top:2.5px solid var(--ink)}
+.hero button{min-height:40px;padding:.4rem 1.1rem;border:2px solid var(--ink);border-radius:8px;background:var(--pink);color:var(--ink);font:700 .95rem var(--display);cursor:pointer;box-shadow:3px 3px 0 var(--ink)}
+.hero button:hover{transform:translate(-1px,-1px)}
+.hero .cta a{display:grid;place-items:center;width:40px;height:40px;border:2px solid var(--ink);border-radius:8px;background:var(--card);color:var(--ink);font:700 .78rem var(--mono);text-decoration:none}
+.fl{position:absolute;z-index:2;border:0;background:none;color:var(--ink);font:700 .72rem var(--mono);text-align:center;cursor:pointer;animation:float 7s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-8px)}}
+.folder{position:relative;width:58px;height:44px;margin:0 auto 5px;border:2px solid var(--ink);border-radius:7px;box-shadow:3px 3px 0 var(--ink)}
+.folder::before{content:"";position:absolute;top:-9px;left:-2px;width:26px;height:9px;border:2px solid var(--ink);border-bottom:0;border-radius:6px 6px 0 0;background:inherit}
+.tile{display:grid;place-items:center;width:84px;height:62px;margin-bottom:4px;border:2px solid var(--ink);border-radius:8px;box-shadow:3px 3px 0 var(--ink);font:800 1.4rem var(--display)}
 
-        .glass-card-hover:hover {
-            border-color: rgba(192, 132, 252, 0.5);
-            box-shadow: 0 10px 30px -10px rgba(168, 85, 247, 0.3);
-            transform: translateY(-3px);
-        }
+/* DOCK: olive bar */
+.dock{position:fixed;z-index:20;left:50%;bottom:calc(14px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);display:flex;gap:10px;padding:10px 14px;border:2.5px solid var(--ink);border-radius:14px;background:var(--olive);box-shadow:5px 5px 0 var(--ink)}
+.dock button{position:relative;width:50px;height:50px;border:2px solid var(--ink);border-radius:10px;background:var(--card)!important;font-size:1.45rem;cursor:pointer;transition:transform .15s,background .15s}
+.dock button img{width:24px;height:24px;object-fit:contain;display:block;margin:0 auto;}
+.dock button:hover,.dock button:focus-visible{transform:translateY(-8px) rotate(-4deg);background:var(--pink)!important;outline:none}
+.dock button span{position:absolute;bottom:125%;left:50%;transform:translateX(-50%);padding:3px 8px;border:1.5px solid var(--ink);border-radius:6px;background:var(--card);font:700 .7rem var(--mono);white-space:nowrap;opacity:0;pointer-events:none}
+.dock button:hover span,.dock button:focus-visible span{opacity:1}
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #050814;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #2E1065;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #9333EA;
-        }
+/* WINDOWS */
+.win{position:fixed;z-index:10;left:50%;top:calc(2.5vh + env(safe-area-inset-top,0px));transform:translateX(-50%);display:none;flex-direction:column;width:min(980px,94vw);max-height:calc(100vh - 125px);overflow:hidden;background:var(--win);color:var(--ink);border:2.5px solid var(--ink);border-radius:12px;box-shadow:8px 8px 0 var(--ink)}
+.win.on{display:flex;animation:pop .22s ease-out}
+.win.big{width:min(1200px,97vw);max-height:calc(100vh - 125px);top:calc(2.5vh + env(safe-area-inset-top,0px))}
+@keyframes pop{from{opacity:0;transform:translateX(-50%) scale(.95)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}}
+.bar{display:flex;flex-direction:row-reverse;align-items:center;gap:7px;padding:8px 12px;background:var(--bar);border-bottom:2.5px solid var(--ink);color:#fff;font:700 .8rem var(--mono)}
+.bar b{flex:1;text-align:left;font-weight:700}
+.dot{width:18px;height:18px;padding:0;border:2px solid var(--ink);border-radius:4px;background:var(--pink2)!important}
+.dot:disabled{display:none}
+.dot:first-child{cursor:pointer;background:var(--pink)!important}
+.body{padding:22px 26px;overflow:auto;-webkit-overflow-scrolling:touch}
+.win.big .body{padding:30px 36px}
+.body h3{font:800 2rem/1 var(--display);letter-spacing:-.02em;margin-bottom:.6rem;color:var(--ink)}
+.body h3::after{content:"";display:block;width:56px;height:6px;margin-top:8px;border-radius:9px;background:var(--pink)}
+.body h4{font:800 1.05rem var(--display);margin:1.3rem 0 .4rem;color:var(--olive)}
+.body p,.body li{max-width:68ch}
+.muted{color:var(--muted)!important}
 
-        /* Ethereal Wing Glow SVG styling */
-        .wing-glow {
-            filter: drop-shadow(0px 0px 20px rgba(168, 85, 247, 0.8));
-        }
+/* SHARED */
+.btn{display:inline-block;min-height:44px;margin:4px 8px 4px 0;padding:9px 18px;border:2px solid var(--ink);border-radius:10px;background:var(--pink);color:var(--ink);font:700 .92rem/24px var(--display);text-decoration:none;box-shadow:3px 3px 0 var(--ink);transition:transform .12s,box-shadow .12s}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 var(--ink)}
+button.btn{cursor:pointer}
+.wtext .btn{background:var(--olive);color:#fff}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin:.3rem 0 .8rem}
+.chip{padding:4px 12px;border:1.5px solid var(--ink);border-radius:99px;background:var(--olive2);font:400 .8rem var(--mono)}
+.chip:nth-child(3n+2){background:var(--peach)}.chip:nth-child(3n){background:var(--pink2)}
+.chip a{color:inherit;font-weight:700}
+.grid{counter-reset:n;display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px}
+.card{counter-increment:n;position:relative;padding:16px;overflow:hidden;border:2px solid var(--ink);border-radius:12px;background:var(--soft);color:var(--ink);font:inherit;text-align:left;cursor:pointer;box-shadow:4px 4px 0 var(--ink);transition:transform .15s,box-shadow .15s}
+.card::after{content:counter(n,decimal-leading-zero);position:absolute;top:2px;right:10px;font:800 3.4rem/1 var(--display);color:transparent;-webkit-text-stroke:1.5px var(--olive);opacity:.55}
+.card:hover,.card:focus-visible{transform:translate(-2px,-2px) rotate(-.6deg);box-shadow:7px 7px 0 var(--ink);outline:none}
+.card .folder{margin:14px 0 16px 4px}
+.card strong{display:block;font:800 1rem/1.2 var(--display)}
+.card small{color:var(--muted);font:400 .72rem var(--mono)}
+.ph{position:relative;display:grid;place-items:center;aspect-ratio:16/10;padding:8px;overflow:hidden;border:2px dashed var(--line);border-radius:8px;background:var(--soft);color:var(--muted);font-size:.8rem;text-align:center;word-break:break-all}
+.ph small{display:block;font-size:.72rem}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:var(--card)}
+.pic{padding:0;border:0;background:none;color:var(--ink);font:inherit;text-align:left;cursor:pointer}
+.pic .ph{border:2px solid var(--ink);box-shadow:3px 3px 0 var(--ink);transition:transform .15s}
+.pic:hover .ph{transform:rotate(-1deg) scale(1.02)}
+.pic span{display:block;margin-top:8px;font:700 .85rem var(--display)}
+.pic small{color:var(--muted);font:400 .72rem var(--mono)}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px}
+.zoom{position:fixed;inset:0;z-index:40;display:none;place-items:center;padding:16px;background:rgba(37,37,29,.82)}
+.zoom.on{display:grid}
+.zoom .ph{width:min(900px,94vw);aspect-ratio:4/3;background:var(--card)}
+.zoom button{position:absolute;top:calc(14px + env(safe-area-inset-top,0px));right:16px;width:44px;height:44px;border:2px solid var(--ink);border-radius:10px;background:var(--pink);font-size:1.6rem;cursor:pointer}
 
-        /* Toast styling */
-        #toast-container {
-            z-index: 9999;
-        }
-    </style>
+/* SECTIONS */
+.about{display:grid;grid-template-columns:230px 1fr;gap:28px;align-items:start}
+.polaroid{position:relative;padding:10px 10px 38px;background:#fff;border:1.5px solid var(--line);box-shadow:0 8px 20px rgba(60,50,20,.25);transform:rotate(-3deg)}
+.polaroid img{display:block;width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top;background:var(--soft)}
+.polaroid i{position:absolute;top:-12px;left:50%;width:84px;height:24px;transform:translateX(-50%) rotate(3deg);background:rgba(238,127,176,.7)}
+.polaroid::after{content:"that's me ♡";position:absolute;bottom:6px;left:0;right:0;text-align:center;font:700 1.3rem var(--script)}
+.back{min-height:36px;margin-bottom:8px;border:0;background:none;color:var(--olive);font:700 .85rem var(--mono);cursor:pointer}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.nav button{width:44px;height:44px;border:2px solid var(--ink);border-radius:10px;background:var(--olive2);color:var(--ink);font-size:1.2rem;cursor:pointer;box-shadow:2px 2px 0 var(--ink)}
+.main{margin:10px 0}.main .ph{aspect-ratio:16/9;font-size:1rem;border:2px solid var(--ink)}
+.thumbs{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:8px;margin-top:10px}
+.thumbs button{padding:0;border:3px solid transparent;border-radius:10px;background:none;color:var(--ink);cursor:pointer}
+.thumbs button.cur{border-color:var(--pink)}
+.thumbs .ph{aspect-ratio:4/3;padding:3px;font-size:.62rem}.thumbs .ph small{display:none}
+.reveal{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:12px;padding:10px 12px;border:2px solid var(--ink);border-radius:12px;background:var(--olive2);animation:fadeUp .3s ease-out both}
+.reveal a{padding:8px 0;color:var(--ink);font:700 .95rem var(--mono);word-break:break-all}
+.reveal .copy{min-height:40px;padding:0 16px;border:2px solid var(--ink);border-radius:10px;background:var(--card);color:var(--ink);font:700 .88rem var(--display);cursor:pointer}
+
+@media (max-width:700px){
+  .wtext{text-align:center}.wtext h1 em{left:50%;transform:translateX(-50%);white-space:nowrap}
+  .tile,.fl.hide,.desk::after{display:none}
+  .hero .hb{grid-template-columns:72px 1fr;padding:16px}.hero .hb img{width:72px;height:72px}
+  .dock{gap:5px;padding:8px}.dock button{width:40px;height:40px;font-size:1.15rem}.dock button span{display:none}
+  .win,.win.big{top:env(safe-area-inset-top,0px);left:0;bottom:0;width:100%;max-height:none;transform:none;border-radius:0;border-width:0}
+  .win.on{animation:none}
+  .body,.win.big .body{padding:16px 16px 100px}
+  .about{grid-template-columns:1fr}.polaroid{max-width:190px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
 </head>
-<body class="relative min-h-screen text-slate-200 selection:bg-purple-500 selection:text-white">
 
-    <!-- Canvas Particle Sparkle Background -->
-    <canvas id="sparkleCanvas" class="fixed inset-0 pointer-events-none z-0 opacity-70"></canvas>
+<body>
 
-    <!-- Toast Notification Container -->
-    <div id="toast-container" class="fixed top-5 right-5 space-y-3 pointer-events-none"></div>
-
-    <!-- Floating Navigation Bar -->
-    <header class="fixed top-4 inset-x-0 z-50 flex justify-center px-4">
-        <nav class="glass-card rounded-full px-4 py-2.5 flex items-center gap-2 sm:gap-6 shadow-2xl border border-purple-500/30 backdrop-blur-md">
-            <a href="#home" class="nav-link px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium transition-all text-white bg-violetGlow-600 shadow-lg shadow-purple-600/30">Home</a>
-            <a href="#about" class="nav-link px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium transition-all text-slate-300 hover:text-white hover:bg-purple-900/40">About</a>
-            <a href="#projects" class="nav-link px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium transition-all text-slate-300 hover:text-white hover:bg-purple-900/40">Projects</a>
-            <a href="#certifications" class="nav-link px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium transition-all text-slate-300 hover:text-white hover:bg-purple-900/40">Certifications</a>
-            <a href="#skills" class="nav-link px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium transition-all text-slate-300 hover:text-white hover:bg-purple-900/40 hidden md:inline-block">Skills</a>
-            <a href="#contact" class="px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-medium border border-purple-400/40 text-purple-200 hover:bg-purple-500/20 transition">Contact</a>
-        </nav>
-    </header>
-
-    <!-- MAIN CONTENT -->
-    <main class="relative z-10">
-
-        <!-- HERO SECTION -->
-        <section id="home" class="relative min-h-screen pt-28 pb-16 flex items-center justify-center px-4 overflow-hidden glow-aura">
-            <!-- Background Ethereal Angel Wings Aura Graphic -->
-            <div class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-30 sm:opacity-40">
-                <svg class="w-[600px] h-[600px] sm:w-[800px] sm:h-[800px] wing-glow animate-pulse-glow" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M250 250 C 200 100, 50 150, 20 280 C 10 320, 80 340, 150 290 C 200 255, 240 260, 250 250 Z" fill="url(#wingGrad1)" opacity="0.8"/>
-                    <path d="M250 250 C 300 100, 450 150, 480 280 C 490 320, 420 340, 350 290 C 300 255, 260 260, 250 250 Z" fill="url(#wingGrad1)" opacity="0.8"/>
-                    <path d="M250 250 C 210 140, 100 180, 70 310 C 110 330, 180 300, 250 250 Z" fill="url(#wingGrad2)" opacity="0.6"/>
-                    <path d="M250 250 C 290 140, 400 180, 430 310 C 390 330, 320 300, 250 250 Z" fill="url(#wingGrad2)" opacity="0.6"/>
-                    <circle cx="250" cy="250" r="18" fill="#FFFFFF" class="animate-ping" opacity="0.7"/>
-                    <circle cx="250" cy="250" r="12" fill="#E9D5FF"/>
-                    <defs>
-                        <linearGradient id="wingGrad1" x1="0" y1="0" x2="500" y2="500" gradientUnits="userSpaceOnUse">
-                            <stop stop-color="#A855F7" />
-                            <stop offset="0.5" stop-color="#7E22CE" />
-                            <stop offset="1" stop-color="#3B0764" stop-opacity="0" />
-                        </linearGradient>
-                        <linearGradient id="wingGrad2" x1="250" y1="100" x2="250" y2="400" gradientUnits="userSpaceOnUse">
-                            <stop stop-color="#E9D5FF" />
-                            <stop offset="1" stop-color="#9333EA" stop-opacity="0.2" />
-                        </linearGradient>
-                    </defs>
-                </svg>
-            </div>
-
-            <div class="max-w-6xl w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                <!-- Left: Profile Portrait Card -->
-                <div class="lg:col-span-5 flex flex-col items-center justify-center">
-                    <div class="relative group">
-                        <!-- Outer Ambient Violet Glowing Frame -->
-                        <div class="absolute -inset-2 bg-gradient-to-r from-purple-600 via-fuchsia-500 to-indigo-600 rounded-full blur-xl opacity-70 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse-glow"></div>
-                        
-                        <!-- Main Circular Profile Portrait Container -->
-                        <div class="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full overflow-hidden p-1.5 bg-gradient-to-tr from-purple-500 via-pink-400 to-violet-300 shadow-2xl">
-                            <div class="w-full h-full rounded-full overflow-hidden bg-navy-900 relative">
-                                <img id="heroProfileImg" src="Professional Passport Portrait.png" alt="Jeramie Anne Losorata" class="w-full h-full object-cover object-center transition duration-500 group-hover:scale-105" onerror="this.onerror=null; this.src='https://placehold.co/400x400/172250/C084FC?text=Jeramie+Losorata';">
-                            </div>
-                        </div>
-
-                        <!-- Floating Badge 1: Top 25 PH Startup Challenge -->
-                        <div class="absolute -bottom-2 -left-4 bg-navy-800/90 border border-purple-400/40 rounded-2xl p-3 shadow-xl backdrop-blur-md flex items-center gap-3 animate-float">
-                            <div class="w-10 h-10 rounded-xl bg-purple-600/30 flex items-center justify-center text-purple-300 text-lg">
-                                <i class="fa-solid fa-trophy"></i>
-                            </div>
-                            <div>
-                                <p class="text-[10px] text-purple-300 font-semibold tracking-wider uppercase">Achievement</p>
-                                <p class="text-xs font-bold text-white">Top 25 PH Startup Challenge</p>
-                            </div>
-                        </div>
-
-                        <!-- Floating Badge 2: Candidate BSCS Senior -->
-                        <div class="absolute -top-2 -right-4 bg-navy-800/90 border border-purple-400/40 rounded-2xl p-3 shadow-xl backdrop-blur-md flex items-center gap-2.5 animate-float" style="animation-delay: 2s;">
-                            <div class="w-9 h-9 rounded-xl bg-indigo-600/30 flex items-center justify-center text-indigo-300 text-sm">
-                                <i class="fa-solid fa-graduation-cap"></i>
-                            </div>
-                            <div>
-                                <p class="text-[10px] text-indigo-300 font-semibold tracking-wider uppercase">USJR Senior</p>
-                                <p class="text-xs font-bold text-white">BS Computer Science</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Right: Hero Intro Text Box -->
-                <div class="lg:col-span-7 text-center lg:text-left space-y-6">
-                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-500/10 border border-purple-400/30 text-purple-300 text-xs sm:text-sm font-medium">
-                        <span class="w-2 h-2 rounded-full bg-purple-400 animate-ping"></span>
-                        <span>Machine Learning & Lead Backend Engineer</span>
-                    </div>
-
-                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
-                        Hi, I'm <span class="bg-gradient-to-r from-purple-300 via-fuchsia-300 to-indigo-200 bg-clip-text text-transparent">Jeramie Anne</span>
-                    </h1>
-
-                    <!-- Soft Floating Rounded Content Card -->
-                    <div class="bg-white text-navy-950 p-6 sm:p-8 rounded-3xl shadow-2xl space-y-4 border border-purple-200 relative overflow-hidden text-left">
-                        <div class="absolute top-0 right-0 w-24 h-24 bg-purple-100 rounded-bl-full pointer-events-none"></div>
-                        <h2 class="text-xl sm:text-2xl font-bold text-navy-950 flex items-center gap-2">
-                            <span>Welcome to My Portfolio</span>
-                            <i class="fa-solid fa-sparkles text-purple-600 text-lg"></i>
-                        </h2>
-                        <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
-                            Computer Science student at the University of San Jose–Recoletos with interests in <strong>Software Development</strong>, <strong>Cybersecurity</strong>, <strong>Artificial Intelligence and Machine Learning</strong>, and <strong>Backend Engineering</strong>. I build practical, user-focused applications from NLP-powered disaster response tools to full-stack systems using Python, Django, FastAPI, React, and modern data technologies.
-                        </p>
-                        <div class="pt-2 flex flex-wrap items-center gap-3">
-                            <a href="#projects" class="px-5 py-2.5 rounded-xl bg-purple-700 hover:bg-purple-800 text-white font-semibold text-sm transition shadow-lg shadow-purple-700/30 flex items-center gap-2">
-                                <span>Explore Projects</span>
-                                <i class="fa-solid fa-arrow-right text-xs"></i>
-                            </a>
-                            <a href="JERAMIE%20ANNE%20LOSORATA_USJR_CV.pdf" download="JERAMIE ANNE LOSORATA_USJR_CV.pdf" class="px-5 py-2.5 rounded-xl border border-purple-300/60 text-navy-950 hover:bg-purple-50 font-semibold text-sm transition flex items-center gap-2"><i class="fa-solid fa-file-arrow-down"></i><span>Download CV</span></a>
-                            <a href="https://github.com/julmaerlithe" target="_blank" class="px-5 py-2.5 rounded-xl border border-slate-300 hover:border-purple-600 text-navy-900 font-semibold text-sm transition flex items-center gap-2 hover:bg-purple-50">
-                                <i class="fa-brands fa-github text-base"></i>
-                                <span>GitHub Profile</span>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Quick Key Stats -->
-                    <div class="grid grid-cols-3 gap-4 pt-2">
-                        <div class="glass-card p-3 sm:p-4 rounded-2xl text-center">
-                            <p class="text-2xl sm:text-3xl font-extrabold text-purple-300">7+</p>
-                            <p class="text-[11px] sm:text-xs text-slate-400 mt-0.5">Major Tech Projects</p>
-                        </div>
-                        <div class="glass-card p-3 sm:p-4 rounded-2xl text-center">
-                            <p class="text-2xl sm:text-3xl font-extrabold text-purple-300">8+</p>
-                            <p class="text-[11px] sm:text-xs text-slate-400 mt-0.5">Certifications</p>
-                        </div>
-                        <div class="glass-card p-3 sm:p-4 rounded-2xl text-center">
-                            <p class="text-2xl sm:text-3xl font-extrabold text-purple-300">2027</p>
-                            <p class="text-[11px] sm:text-xs text-slate-400 mt-0.5">BSCS Graduation</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ABOUT ME SECTION -->
-        <section id="about" class="py-20 px-4 max-w-6xl mx-auto">
-            <div class="text-center max-w-2xl mx-auto mb-12">
-                <span class="text-purple-400 font-semibold text-xs uppercase tracking-widest">Background & Expertise</span>
-                <h2 class="text-3xl sm:text-4xl font-bold text-white mt-2">About Jeramie Anne</h2>
-                <div class="w-16 h-1 bg-gradient-to-r from-purple-500 to-indigo-500 mx-auto mt-3 rounded-full"></div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Card 1: Academic Focus -->
-                <div class="glass-card glass-card-hover p-6 rounded-3xl space-y-4">
-                    <div class="w-12 h-12 rounded-2xl bg-purple-600/20 border border-purple-500/30 flex items-center justify-center text-purple-300 text-xl">
-                        <i class="fa-solid fa-graduation-cap"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white">Education & Honors</h3>
-                    <p class="text-xs text-purple-300 font-medium">University of San Jose-Recoletos (USJR)</p>
-                    <p class="text-sm text-slate-300 leading-relaxed">
-                        Bachelor of Science in Computer Science (BSCS) - Senior Year. Expected Graduation: July 2027. Focused on machine learning research, computer vision models, and civic tech infrastructure.
-                    </p>
-                </div>
-
-                <!-- Card 2: Core Engineering Focus -->
-                <div class="glass-card glass-card-hover p-6 rounded-3xl space-y-4">
-                    <div class="w-12 h-12 rounded-2xl bg-fuchsia-600/20 border border-fuchsia-500/30 flex items-center justify-center text-fuchsia-300 text-xl">
-                        <i class="fa-solid fa-brain"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white">ML & Backend Engineering</h3>
-                    <p class="text-xs text-fuchsia-300 font-medium">Data Pipelines & Intelligence Engines</p>
-                    <p class="text-sm text-slate-300 leading-relaxed">
-                        Specialized in fine-tuning Hugging Face Transformers (XLM-RoBERTa, mDeBERTa), HOG feature extraction, SVM classification, FastAPI backend architectures, and Granger causality analysis.
-                    </p>
-                </div>
-
-                <!-- Card 3: Civic Tech & Leadership -->
-                <div class="glass-card glass-card-hover p-6 rounded-3xl space-y-4">
-                    <div class="w-12 h-12 rounded-2xl bg-indigo-600/20 border border-indigo-500/30 flex items-center justify-center text-indigo-300 text-xl">
-                        <i class="fa-solid fa-hand-holding-heart"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white">Civic & Social Impact</h3>
-                    <p class="text-xs text-indigo-300 font-medium">Disaster Mapping & Assistive Devices</p>
-                    <p class="text-sm text-slate-300 leading-relaxed">
-                        Passionate about translating technology into social good—from real-time disaster post mapping (AGAPAI) and clinical priority queuing (SPEEDCARE) to IoT Braille translators.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- PROJECTS SHOWCASE SECTION -->
-        <section id="projects" class="py-20 px-4 max-w-7xl mx-auto">
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
-                <div>
-                    <span class="text-purple-400 font-semibold text-xs uppercase tracking-widest">Portfolio Engineering</span>
-                    <h2 class="text-3xl sm:text-4xl font-bold text-white mt-1">Featured Projects</h2>
-                    <p class="text-slate-400 text-sm mt-1">Interactive showcase of data science, computer vision, web app, and IoT solutions.</p>
-                </div>
-
-                <!-- Filter Controls -->
-                <div class="flex flex-wrap gap-2 bg-navy-900/80 p-1.5 rounded-2xl border border-purple-500/20">
-                    <button onclick="filterProjects('all')" class="proj-filter-btn px-3.5 py-1.5 rounded-xl text-xs font-semibold transition bg-purple-600 text-white" data-filter="all">All</button>
-                    <button onclick="filterProjects('ml')" class="proj-filter-btn px-3.5 py-1.5 rounded-xl text-xs font-semibold text-slate-300 hover:text-white transition" data-filter="ml">AI / ML</button>
-                    <button onclick="filterProjects('web')" class="proj-filter-btn px-3.5 py-1.5 rounded-xl text-xs font-semibold text-slate-300 hover:text-white transition" data-filter="web">Full-Stack</button>
-                    <button onclick="filterProjects('cv-iot')" class="proj-filter-btn px-3.5 py-1.5 rounded-xl text-xs font-semibold text-slate-300 hover:text-white transition" data-filter="cv-iot">CV & IoT</button>
-                    <button onclick="filterProjects('civic')" class="proj-filter-btn px-3.5 py-1.5 rounded-xl text-xs font-semibold text-slate-300 hover:text-white transition" data-filter="civic">Civic Tech</button>
-                </div>
-            </div>
-
-            <!-- Projects Grid -->
-            <div id="projectsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Project cards injected via JavaScript -->
-            </div>
-        </section>
-
-        <!-- CERTIFICATIONS SECTION -->
-        <section id="certifications" class="py-20 px-4 max-w-7xl mx-auto">
-            <div class="text-center max-w-2xl mx-auto mb-12">
-                <span class="text-purple-400 font-semibold text-xs uppercase tracking-widest">Verified Credentials</span>
-                <h2 class="text-3xl sm:text-4xl font-bold text-white mt-2">Certifications & Awards</h2>
-                <p class="text-slate-400 text-sm mt-2">Recognized credentials from IBM, DataCamp, and Innovation Organizations.</p>
-            </div>
-
-            <!-- Cert Filter Bar -->
-            <div class="flex justify-center gap-2 mb-10 flex-wrap">
-                <button onclick="filterCerts('all')" class="cert-filter-btn px-4 py-1.5 rounded-full text-xs font-medium bg-purple-600 text-white border border-purple-400/40" data-cert="all">All (9)</button>
-                <button onclick="filterCerts('ibm')" class="cert-filter-btn px-4 py-1.5 rounded-full text-xs font-medium text-slate-300 hover:text-white glass-card" data-cert="ibm">IBM</button>
-                <button onclick="filterCerts('datacamp')" class="cert-filter-btn px-4 py-1.5 rounded-full text-xs font-medium text-slate-300 hover:text-white glass-card" data-cert="datacamp">DataCamp</button>
-                <button onclick="filterCerts('awards')" class="cert-filter-btn px-4 py-1.5 rounded-full text-xs font-medium text-slate-300 hover:text-white glass-card" data-cert="awards">Awards & Business</button>
-            </div>
-
-            <!-- Certifications Grid -->
-            <div id="certsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Certification cards injected via JS -->
-            </div>
-        </section>
-
-        <!-- TECHNICAL SKILLS SECTION -->
-        <section id="skills" class="py-20 px-4 max-w-6xl mx-auto">
-            <div class="glass-card p-8 sm:p-12 rounded-3xl border border-purple-500/30 relative overflow-hidden">
-                <div class="absolute -right-10 -bottom-10 w-64 h-64 bg-purple-600/10 rounded-full blur-3xl pointer-events-none"></div>
-
-                <div class="text-center max-w-2xl mx-auto mb-10">
-                    <span class="text-purple-400 font-semibold text-xs uppercase tracking-widest">Technical Toolkit</span>
-                    <h2 class="text-3xl sm:text-4xl font-bold text-white mt-1">Skills & Frameworks</h2>
-                    <p class="text-slate-400 text-sm mt-2">Libraries, tools, and methodologies powering my solutions.</p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <!-- Machine Learning & NLP -->
-                    <div class="space-y-4">
-                        <h3 class="text-base font-bold text-purple-300 flex items-center gap-2">
-                            <i class="fa-solid fa-microchip"></i>
-                            <span>Machine Learning, NLP & Computer Vision</span>
-                        </h3>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 rounded-lg text-xs font-medium bg-purple-900/40 text-purple-200 border border-purple-500/30">PyTorch</span>
-                            <span class="px-3 py-1 rounded-lg text-xs font-medium bg-purple-900/40 text-purple-200 border border-purple-500/30">Hugging Face Transformers</span>
-                            <span class="px-3 py-1 rounded-lg text-xs font-medium bg-purple-900/40 text-purple-200 border border-purple-500/30">XLM-RoBERTa / mDeBERTa</span>
-                            <span class="px-3 py-1 rounded-lg text-xs font-medium bg-purple-900/40 text-purple-200 border border-purple-500/30">OpenCV</span>
-                            <span class="px-3 py-1 rounded-lg text-xs font-medium bg-purple-900/40 text-purple-200 border border-purple-500/30">HOG Feature Extraction</span>
-                            <span class="px-3 py-1 rounded-lg text-xs font-medium bg-purple-900/40 text-purple-200 border border-purple-500/30">SVM (RBF Kernel)</span>
-                            <span class="px-3 py-1 rounded-lg text-xs font-medium bg-purple-900/40 text-purple-200 border border-purple-500/30">scikit-learn</span>
-                            <span class="px-3 py-1 rounded-lg text-xs font-medium bg-purple-900/40 text-purple-200 border border-purple-500/30">Statsmodels</span>
-                            <span class="px-3 py-1 rounded-lg text-xs font-medium bg-purple-900/40 text-purple-200 border border-purple-500/30">Pandas / NumPy</span>
-                        </div>
-                    </div>
-
-                    <!-- Programming & Backend -->
-                    <div class="space-y-4">
-                        <h3 class="text-base font-bold text-purple-300 flex items-center gap-2">
-                            <i class="fa-solid fa-code"></i>
-                            <span>Programming & Backend Frameworks</span>
-                        </h3>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 rounded-lg text-xs font-medium bg-purple-900/40 text-purple-200 border border-purple-500/30">Python</span>
-                            <span class="px-3 py-1 rounded-lg text-xs font-medium bg-purple-900/40 text-purple-200 border border-purple-500/30">FastAPI</span>
-                            <span class="px-3 py-1 rounded-lg text-xs font-medium bg-purple-900/40 text-purple-200 border border-purple-500/30">Django</span>
-                            <span class="px-3 py-1 rounded-lg text-xs font-medium bg-purple-900/40 text-purple-200 border border-purple-500/30">JavaScript (ES6+)</span>
-                            <span class="px-3 py-1 rounded-lg text-xs font-medium bg-purple-900/40 text-purple-200 border border-purple-500/30">Node.js / Express.js</span>
-                            <span class="px-3 py-1 rounded-lg text-xs font-medium bg-purple-900/40 text-purple-200 border border-purple-500/30">MQTT Protocols</span>
-                            <span class="px-3 py-1 rounded-lg text-xs font-medium bg-purple-900/40 text-purple-200 border border-purple-500/30">ESP32 Firmware</span>
-                        </div>
-                    </div>
-
-                    <!-- Web & Frontend -->
-                    <div class="space-y-4">
-                        <h3 class="text-base font-bold text-purple-300 flex items-center gap-2">
-                            <i class="fa-solid fa-laptop-code"></i>
-                            <span>Frontend & UI Technologies</span>
-                        </h3>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 rounded-lg text-xs font-medium bg-purple-900/40 text-purple-200 border border-purple-500/30">React.js</span>
-                            <span class="px-3 py-1 rounded-lg text-xs font-medium bg-purple-900/40 text-purple-200 border border-purple-500/30">HTML5 / CSS3</span>
-                            <span class="px-3 py-1 rounded-lg text-xs font-medium bg-purple-900/40 text-purple-200 border border-purple-500/30">Tailwind CSS</span>
-                            <span class="px-3 py-1 rounded-lg text-xs font-medium bg-purple-900/40 text-purple-200 border border-purple-500/30">Google Maps API</span>
-                            <span class="px-3 py-1 rounded-lg text-xs font-medium bg-purple-900/40 text-purple-200 border border-purple-500/30">Geospatial Heatmaps</span>
-                        </div>
-                    </div>
-
-                    <!-- Databases & Developer Tools -->
-                    <div class="space-y-4">
-                        <h3 class="text-base font-bold text-purple-300 flex items-center gap-2">
-                            <i class="fa-solid fa-database"></i>
-                            <span>Databases & Infrastructure</span>
-                        </h3>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 rounded-lg text-xs font-medium bg-purple-900/40 text-purple-200 border border-purple-500/30">MongoDB</span>
-                            <span class="px-3 py-1 rounded-lg text-xs font-medium bg-purple-900/40 text-purple-200 border border-purple-500/30">SQLite</span>
-                            <span class="px-3 py-1 rounded-lg text-xs font-medium bg-purple-900/40 text-purple-200 border border-purple-500/30">Firebase</span>
-                            <span class="px-3 py-1 rounded-lg text-xs font-medium bg-purple-900/40 text-purple-200 border border-purple-500/30">Git & GitHub</span>
-                            <span class="px-3 py-1 rounded-lg text-xs font-medium bg-purple-900/40 text-purple-200 border border-purple-500/30">VS Code</span>
-                            <span class="px-3 py-1 rounded-lg text-xs font-medium bg-purple-900/40 text-purple-200 border border-purple-500/30">CLI / Bash</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CONTACT SECTION -->
-        <section id="contact" class="py-20 px-4 max-w-4xl mx-auto">
-            <div class="text-center max-w-2xl mx-auto mb-10">
-                <span class="text-purple-400 font-semibold text-xs uppercase tracking-widest">Get In Touch</span>
-                <h2 class="text-3xl sm:text-4xl font-bold text-white mt-1">Let's Connect & Collaborate</h2>
-                <p class="text-slate-400 text-sm mt-2">I am open for research collaborations, engineering opportunities, and open-source civic tech projects.</p>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <!-- Email Box -->
-                <div class="glass-card p-4 rounded-2xl flex items-center justify-between">
-                    <div class="flex items-center gap-3 overflow-hidden">
-                        <div class="w-10 h-10 rounded-xl bg-purple-600/30 flex-shrink-0 flex items-center justify-center text-purple-300">
-                            <i class="fa-solid fa-envelope"></i>
-                        </div>
-                        <div class="overflow-hidden">
-                            <p class="text-[10px] text-slate-400 uppercase font-semibold">Email Address</p>
-                            <p class="text-xs sm:text-sm font-semibold text-white truncate">jeramieanne.losorata.23@usjr.edu.ph</p>
-                        </div>
-                    </div>
-                    <button onclick="copyToClipboard('jeramieanne.losorata.23@usjr.edu.ph', 'Email copied!')" class="p-2 text-purple-300 hover:text-white transition flex-shrink-0" title="Copy Email">
-                        <i class="fa-regular fa-copy"></i>
-                    </button>
-                </div>
-
-                <!-- Phone Box -->
-                <div class="glass-card p-4 rounded-2xl flex items-center justify-between">
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-xl bg-purple-600/30 flex-shrink-0 flex items-center justify-center text-purple-300">
-                            <i class="fa-solid fa-phone"></i>
-                        </div>
-                        <div>
-                            <p class="text-[10px] text-slate-400 uppercase font-semibold">Phone Contact</p>
-                            <p class="text-xs sm:text-sm font-semibold text-white">09161612218</p>
-                        </div>
-                    </div>
-                    <button onclick="copyToClipboard('09161612218', 'Phone number copied!')" class="p-2 text-purple-300 hover:text-white transition flex-shrink-0" title="Copy Phone">
-                        <i class="fa-regular fa-copy"></i>
-                    </button>
-                </div>
-
-                <!-- GitHub Link -->
-                <a href="https://github.com/julmaerlithe" target="_blank" class="glass-card p-4 rounded-2xl flex items-center justify-between group hover:border-purple-400/50 transition">
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-xl bg-slate-800 flex-shrink-0 flex items-center justify-center text-white text-lg">
-                            <i class="fa-brands fa-github"></i>
-                        </div>
-                        <div>
-                            <p class="text-[10px] text-slate-400 uppercase font-semibold">GitHub Profile</p>
-                            <p class="text-xs sm:text-sm font-semibold text-purple-300 group-hover:text-white transition">github.com/julmaerlithe</p>
-                        </div>
-                    </div>
-                    <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-white transition flex-shrink-0"></i>
-                </a>
-
-                <!-- Location -->
-                <div class="glass-card p-4 rounded-2xl flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-xl bg-purple-600/30 flex-shrink-0 flex items-center justify-center text-purple-300">
-                        <i class="fa-solid fa-location-dot"></i>
-                    </div>
-                    <div>
-                        <p class="text-[10px] text-slate-400 uppercase font-semibold">Location</p>
-                        <p class="text-xs sm:text-sm font-semibold text-white">Cebu City, Philippines</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="border-t border-purple-500/20 py-8 px-4 text-center text-xs text-slate-400 relative z-10">
-        <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p>© 2026 Jeramie Anne Losorata. All rights reserved.</p>
-            <p class="flex items-center gap-1.5 text-purple-300">
-                <span>Designed & Built with</span>
-                <i class="fa-solid fa-heart text-purple-500"></i>
-                <span>BSCS @ USJR</span>
-            </p>
+<!-- Welcome page: lanyard ID card -->
+<div class="welcome" id="welcome">
+  <div class="wrap">
+    <div class="lanyard">
+      <svg class="scrib" style="top:90px;right:-80px;transform:rotate(12deg)" viewBox="0 0 200 240"><path d="M30 130C-10 50 80 0 105 60C130 0 215 50 170 130C150 175 100 205 70 235"/></svg>
+      <svg class="scrib" style="bottom:-30px;left:-90px;transform:rotate(-20deg)" viewBox="0 0 200 240"><path d="M170 110C200 30 110 -5 90 55C65 5 -5 50 35 125C55 170 105 200 140 232"/></svg>
+      <div class="strap"></div><div class="clip"></div>
+      <div class="idcard">
+        <div class="top"><h2>PORTFOLIO<br>CARD</h2><span class="no">STUDENT 2027</span></div>
+        <div class="sch">UNIVERSITY OF SAN JOSE-RECOLETOS</div>
+        <div class="idrow">
+          <div>
+            <label>NAME</label><b>Jeramie Anne Losorata</b>
+            <label>PROGRAM</label><b>Computer Science</b>
+            <label>BASED IN</label><b>Cebu City</b>
+            <label>GRADUATING</label><b>July 2027</b>
+          </div>
+          <img id="welcomePhoto" src="files/Professional Passport Portrait.png" alt="Portrait of Jeramie Anne Losorata">
         </div>
-    </footer>
+        <div class="foot"><span>THE HOLDER OF THIS CARD IS AN<br>ASPIRING DEVELOPER &amp; BUILDER.</span><div class="logo">j</div></div>
+      </div>
+    </div>
+    <div class="wtext">
+      <div class="hi">// HELLO, I'M</div>
+      <h1>PORT<br>FOLIO<em>Jeramie Anne</em></h1>
+      <div class="sub">Computer Science Student · Aspiring Developer</div>
+      <p>I'm a Computer Science student who enjoys learning new things and building projects using technology. Take a look at my projects, skills, and achievements.</p>
+      <button class="btn" onclick="enterPortfolio()" style="margin-top:1rem">Explore My Work ↗</button>
+    </div>
+  </div>
+</div>
+
+<!-- Desktop (floating icons are added by the script) -->
+<div class="desk" id="desk">
+  <div class="hero">
+    <div class="tb"><i></i><i></i><i></i>&nbsp;C:\JERAMIE\portfolio</div>
+    <div class="hb">
+      <img src="files/Professional Passport Portrait.png" alt="Jeramie Anne Losorata">
+      <div>
+        <small>hi! i'm</small>
+        <h1>Jeramie Anne Losorata</h1>
+        <h2>Computer Science Student · Aspiring Developer</h2>
+        <p>Project developer from Cebu City. I build web apps, machine learning tools, and small devices.</p>
+      </div>
+    </div>
+    <div class="cta">
+      <button onclick="openWindow('projects')">See my projects</button>
+      <a href="https://github.com/julmaerlithe" target="_blank" rel="noopener" aria-label="GitHub">GH</a>
+      <a href="https://www.credly.com/users/jeramie-anne-losorata" target="_blank" rel="noopener" aria-label="Credly">CR</a>
+      <a href="#" onclick="openWindow('contact');return false" aria-label="Contact">@</a>
+    </div>
+  </div>
+</div>
+
+<!-- Window used for every section -->
+<div class="win" id="win" role="dialog" aria-labelledby="winTitle">
+  <div class="bar">
+    <button class="dot" style="background:#ff5f57" onclick="closeWindow()" aria-label="Close window"></button>
+    <button class="dot" style="background:#febc2e" disabled aria-hidden="true"></button>
+    <button class="dot" style="background:#28c840" disabled aria-hidden="true"></button>
+    <b id="winTitle"></b>
+  </div>
+  <div class="body" id="body"></div>
+</div>
+
+<!-- Big image preview -->
+<div class="zoom" id="zoom" onclick="this.classList.remove('on')">
+  <button aria-label="Close preview">×</button>
+  <div id="zoomBox"></div>
+</div>
+
+<!-- Bottom dock (icons are added by the script) -->
+<nav class="dock" id="dock" aria-label="Main"></nav>
 
 
-    <!-- MODAL 1: PROJECT DETAIL & MEDIA LIGHTBOX MODAL -->
-    <div id="projectModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-navy-950/80 backdrop-blur-md">
-        <div class="glass-card max-w-3xl w-full max-h-[90vh] rounded-3xl border border-purple-400/40 shadow-2xl overflow-y-auto p-6 sm:p-8 relative space-y-6">
-            <button onclick="closeProjectModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-800 text-slate-300 hover:text-white flex items-center justify-center transition">
-                <i class="fa-solid fa-xmark text-lg"></i>
-            </button>
+<script>
+/* =====================================================
+   1. YOUR CONTENT  – edit this part to update the site
+   ===================================================== */
+const EMAIL  = "jeramieanne.losorata.23@usjr.edu.ph";
+const PHONE  = "09161612218";
+const GITHUB = "https://github.com/julmaerlithe";
+const CREDLY = "https://www.credly.com/users/jeramie-anne-losorata";
+const CV_NAME = "JERAMIE ANNE LOSORATA_USJR_CV.pdf";
 
-            <!-- Modal Header -->
-            <div class="space-y-2 pr-8">
-                <span id="pModalCategory" class="text-xs font-semibold uppercase tracking-wider text-purple-400">Category</span>
-                <h2 id="pModalTitle" class="text-2xl sm:text-3xl font-extrabold text-white">Project Title</h2>
-                <p id="pModalRole" class="text-xs sm:text-sm text-purple-300 font-medium">Role & Timeline</p>
-            </div>
+const IMG_FOLDER  = "images/";  // screenshots and certificates go here
+const FILE_FOLDER = "files/";   // documents (PDF, DOCX, MD) go here
 
-            <!-- Media Preview Area (Photo or Video Embed) -->
-            <div id="pModalMediaContainer" class="w-full h-64 sm:h-80 rounded-2xl overflow-hidden bg-navy-900 border border-purple-500/30 relative flex items-center justify-center">
-                <!-- Injected via JS -->
-            </div>
+// Makes a list of file names, e.g. range("cerv", 1, 3) -> cerv1.png, cerv2.png, cerv3.png
+const range = (name, from, to, ext = ".png") =>
+  Array.from({ length: to - from + 1 }, (_, i) => name + (from + i) + ext);
 
-            <!-- Details Description -->
-            <div class="space-y-4">
-                <h3 class="text-sm font-bold text-white uppercase tracking-wider">Overview & Architecture</h3>
-                <p id="pModalDesc" class="text-sm text-slate-300 leading-relaxed">Detailed project description goes here...</p>
-                
-                <h3 class="text-sm font-bold text-white uppercase tracking-wider">Tech Stack Tags</h3>
-                <div id="pModalBadges" class="flex flex-wrap gap-2"></div>
-            </div>
+/* ---------- Projects ---------- */
+const PROJECTS = [
+  {
+    id: "speedcare", name: "SpeedCare", color: "#a855f7",
+    about: "A clinic queue web app that helps a clinic decide who should be seen first. It uses two layers of machine learning, and it gives extra priority to vulnerable patients. I worked on the frontend and the backend, and also on the machine learning and data analysis. For the machine learning, I used Scikit-Learn with TF-IDF vectorizers and classification models to sort patients. The screens are made with React and Axios, and the backend runs on Django REST Framework (DRF).",
+    tech: ["Django REST Framework", "React", "Axios", "Scikit-Learn", "TF-IDF", "Machine Learning"],
+    docs: ["speedcare_project.pdf", "SpeedCare_Technical_Report.md"],
+    links: [["GitHub repo", "https://github.com/bncnttt/SpeedCare"]],
+    shots: range("speedcare", 1, 10)
+  },
+  {
+    id: "cerv", name: "CERV (Citizen Emergency Reporting and Verification)", color: "#ef4444",
+    about: "An app where people in Cebu City report hazards and emergencies. Reports can have photos, files, and a GPS location. Authorities can review them and update the status. Reports are shown on a map to find problem areas. I am the lead developer, and I worked on both the frontend and the backend.",
+    tech: ["Google Maps API", "Firebase", "Node.js / Express.js", "React.js / Flutter"],
+    docs: ["README-CERV.md"],
+    links: [
+      ["Project link", "https://drive.google.com/file/d/1_aPqt2txGg0xrwPJfai7d_buO-5b2tbg/view?usp=drive_link"],
+      ["GitHub repo", "https://github.com/aicaeli/SE-CERV.git"]
+    ],
+    shots: range("cerv", 1, 13)
+  },
+  {
+    id: "pasada", name: "PasadaNet", color: "#f97316",
+    about: "A hackathon project for jeepney and bus drivers in Cebu, and for commuters too. Drivers can check if a trip will earn money or lose money. Commuters can show that they are waiting and see which vehicle will come first. It is a working app that you can really try.",
+    tech: ["HTML", "CSS", "JavaScript"],
+    docs: ["README-PASADA_NET Hackathon.md"],
+    links: [["Project link", "https://drive.google.com/drive/folders/16soTvNmcmDpErlzY6Y0bj-BTG2PS74js?usp=drive_link"]],
+    shots: range("pasada_net", 1, 4)
+  },
+  {
+    id: "seat", name: "Automated Seat Occupancy System", color: "#3b82f6",
+    about: "A camera-based system that checks if each seat is empty or taken. It looks at the shape in each seat picture and uses a trained model to decide. On the small test set (20 images) it got every one right. This was my first project for Graphics and Visuals Computing, and I built everything myself, from start to finish.",
+    tech: ["Python", "OpenCV", "scikit-image", "scikit-learn", "NumPy"],
+    docs: ["Automated_Seat_Occupancy_Project_Documentation.pdf"],
+    links: [["Project link", "https://drive.google.com/drive/folders/1NmUEfCSWZ-BDMEPGWXtQ12oSB3z6HOYU?usp=drive_link"]],
+    shots: range("seat-occupancy", 1, 10)
+  },
+  {
+    id: "braille", name: "Braille System", color: "#eab308",
+    about: "A small device that turns digital text into Braille you can feel, in real time. It uses an ESP32 board, MQTT messages, and tiny servo motors.",
+    tech: ["ESP32", "MQTT", "SG90 servo motors"],
+    docs: ["Braille Tech project.pdf"],
+    links: [["Project link", "https://drive.google.com/file/d/1_eg4buXzhpXMJGRtqWbuvDBRBzhfulTm/view?usp=drive_link"]],
+    shots: ["braille system2.png", "braille system3.png", "braille system4.png", "braille system5.png"]
+  },
+  {
+    id: "agri", name: "Philippine Agricultural Farm-Gate and Retail Price Analysis", color: "#22c55e",
+    about: "A study of farm-gate and store prices of rice, corn, coconut, and other crops from 2021 to 2025, using PSA data. It finds the gap between the two prices, the farmer's share, and whether farm prices predict store prices.",
+    tech: ["Python", "FastAPI", "Pandas", "NumPy", "Statsmodels"],
+    docs: ["README-Research-Project-Philippine-Agri-Farmgate-and-Retail-Price-Analysis.md"],
+    links: [["GitHub repo", "https://github.com/julmaerlithe/Research-Project-Philippine-Agri-Farmgate-and-Retail-Price-Analysis.git"]],
+    shots: range("agriPrice", 1, 17)
+  },
+  {
+    id: "agapai", name: "AgapAI", color: "#ec4899",
+    about: "A disaster mapping and volunteer project. It helps people hit by a disaster and the volunteers who want to help them find each other on a map. I am the lead for data and backend. I build language models that sort real-time disaster posts, so the important ones do not get missed. This is our thesis project. Our team made the Top 25 in the Philippine Startup Challenge. The system is still a work in progress. It already works, and we keep fixing it, testing it, and adding more to it.",
+    tech: ["Python", "PyTorch", "Hugging Face Transformers", "XLM-RoBERTa / mDeBERTa"],
+    docs: ["WOOPSIE_PresentationDeck_PSC11.pdf"],
+    links: [["GitHub repo", "https://github.com/bncnttt/AgapAI"]],
+    shots: ["agapai.png", "agapai2.png", "agapai3.png"]
+  }
+];
 
-            <div class="pt-4 border-t border-purple-500/20 flex flex-wrap gap-3 justify-end">
-                <a id="pModalGithub" href="https://github.com/julmaerlithe" target="_blank" class="px-5 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-700 text-white text-xs font-bold transition flex items-center gap-2">
-                    <i class="fa-brands fa-github text-sm"></i>
-                    <span>View Repository on GitHub</span>
-                </a>
-            </div>
+/* ---------- Certificates: [file, title, where it is from] ---------- */
+const CERTS = [
+  ["wadhwani-Certificate.png", "Wadhwani Foundation", "42 hours, finished Dec 15, 2025"],
+  ["AI fundamentals-Certificate.png", "AI Fundamentals", "DataCamp"],
+  ["google cloud-Certificate.png", "Google Cloud Generative AI Leader", "DataCamp"],
+  ["Feature Engineering-Certificate.png", "Feature Engineering for Machine Learning in Python", "DataCamp"],
+  ["sustainability-Certificate.png", "Fundamentals of Sustainability and Technology", "IBM SkillsBuild"],
+  ["cloud security-Certificate.png", "Cloud Security", "IBM SkillsBuild"],
+  ["data science-python-Certificate1.png", "Python for Data Science (1)", "IBM Skills Network"],
+  ["data science-python-Certificate2.png", "Python for Data Science (2)", "IBM Skills Network"]
+];
+
+/* ---------- Skills ---------- */
+const SKILLS = {
+  "Programming and frameworks": ["Python", "JavaScript", "HTML/CSS", "PyTorch", "Hugging Face Transformers", "FastAPI", "Django", "React", "Node.js", "Express.js"],
+  "Data science and ML": ["Pandas", "NumPy", "scikit-learn", "Statsmodels", "OpenCV", "HOG feature extraction", "NLP classification"],
+  "Databases and tools": ["MongoDB", "SQLite", "Firebase", "Git", "GitHub", "Visual Studio Code", "Command Prompt"]
+};
+const INTERESTS = ["Machine learning research", "Civic tech", "Computer vision", "Open-source work"];
+
+/* ---------- Achievements ---------- */
+const TOP25_IMAGE = "psc-top 25.png";
+const HACKATHON_IMAGES = ["pasada_net4.png", "pasada_net1.png"];
+
+/* ---------- Dock icons: [section, icon, label, color] ---------- */
+const DOCK = [
+  ["home", '<img src="' + IMG_FOLDER + 'house-solid-full.svg" alt="Home">', "Home", "#fff7"],
+  ["about", '<img src="' + IMG_FOLDER + 'user-solid-full.svg" alt="About">', "About me", "#f5c518"],
+  ["skills", '<img src="' + IMG_FOLDER + 'briefcase-solid-full.svg" alt="Skills">', "Skills", "#4aa8ff"],
+  ["projects", '<img src="' + IMG_FOLDER + 'folder-open-solid-full.svg" alt="Projects">', "Projects", "#ff5fc8"],
+  ["certs", '<img src="' + IMG_FOLDER + 'bookmark-solid-full.svg" alt="Certificates">', "Certificates and badges", "#ff8a4c"],
+  ["ach", '<img src="' + IMG_FOLDER + 'trophy-solid-full.svg" alt="Achievements">', "Achievements", "#3ed16b"],
+  ["contact", '<img src="' + IMG_FOLDER + 'envelope-solid-full.svg" alt="Contact">', "Contact", "#b86cff"]
+];
+
+/* ---------- Floating folders and previews on the desktop ---------- */
+const DESK_ITEMS = [
+  { label: "projects",       color: "#ff6b7a", pos: "top:12%;left:7%",    go: () => openWindow("projects") },
+  { label: "certificates",   color: "#3aa7f5", pos: "top:58%;left:15%",   go: () => openWindow("certs") },
+  { label: "achievements",   color: "#7ddc4a", pos: "top:14%;right:9%",   go: () => openWindow("ach") },
+  { label: "pasadanet",      color: "#ffa488", pos: "top:66%;right:7%",   go: () => openProject("pasada") },
+  { label: "speedcare",      tile: "SC", bg: "#e9d5ff", fg: "#6b21a8", pos: "top:30%;left:4%",  go: () => openProject("speedcare") },
+  { label: "cerv",           tile: "CE", bg: "#fecaca", fg: "#991b1b", pos: "top:6%;left:34%",  go: () => openProject("cerv") },
+  { label: "seat occupancy", tile: "SO", bg: "#bfdbfe", fg: "#1e40af", pos: "top:34%;right:3%", go: () => openProject("seat") },
+  { label: "braille",        tile: "⠃⠗", bg: "#fde68a", fg: "#92400e", pos: "top:70%;left:3%",  go: () => openProject("braille") }
+];
+
+
+/* =====================================================
+   2. SMALL HELPERS
+   ===================================================== */
+const $ = id => document.getElementById(id);
+
+// An image box. It shows the file name until the real image is found.
+const imageBox = (file, showHint = true) => `
+  <div class="ph">
+    <span>${file}${showHint ? "<small>Add this file to /images</small>" : ""}</span>
+    <img src="${IMG_FOLDER}${encodeURIComponent(file)}" alt="${file}" onerror="tryOtherType(this)">
+  </div>`;
+
+// If a .png is missing try .jpg (and the other way around), then give up.
+function tryOtherType(img) {
+  const src = img.getAttribute("src");
+  if (!img.dataset.tried && /\.(png|jpg)$/.test(src)) {
+    img.dataset.tried = 1;
+    img.src = src.replace(/\.(png|jpg)$/, m => (m === ".png" ? ".jpg" : ".png"));
+  } else {
+    img.remove();
+  }
+}
+
+const chips = list => `<div class="chips">${list.map(t => `<span class="chip">${t}</span>`).join("")}</div>`;
+const linkButton = (text, url) => `<a class="btn" href="${url}" target="_blank" rel="noopener">${text}</a>`;
+const clickableImage = file => `<button class="pic" onclick="zoomImage('${file}')">${imageBox(file)}</button>`;
+
+// The CV is stored inside the page, so we turn it into a file the browser can download.
+let cvUrl;
+function getCvUrl() {
+  if (!cvUrl) {
+    try {
+      const text = atob(FILES.cv), bytes = new Uint8Array(text.length);
+      for (let i = 0; i < text.length; i++) bytes[i] = text.charCodeAt(i);
+      cvUrl = URL.createObjectURL(new Blob([bytes], { type: "application/pdf" }));
+    } catch (e) {
+      cvUrl = FILE_FOLDER + encodeURIComponent(CV_NAME);
+    }
+  }
+  return cvUrl;
+}
+
+
+/* =====================================================
+   3. SECTIONS – each returns [window title, html]
+   ===================================================== */
+const SECTIONS = {
+
+  about: () => ["About me", `
+    <div class="about">
+      <div class="polaroid"><i></i><img src="${FILES.photo}" alt="Jeramie Anne Losorata"></div>
+      <div>
+        <h3>Hi, I'm Jeramie Anne.</h3>
+        <p>I study Computer Science at the University of San Jose-Recoletos in Cebu City. I am in my senior year and I plan to graduate in July 2027.</p>
+        <p style="margin-top:.7rem">I like machine learning, computer vision, and web apps that help people in their community. I also like open-source work.</p>
+        <p style="margin-top:.7rem">So far I have built a clinic triage web app, a seat occupancy detector that uses a camera, a farm price study, an emergency reporting app, a Braille device, and a disaster victim and volunteer mapping project.</p>
+        <p style="margin-top:.7rem">I learn best by building real things, so I try to turn what I study into something people can actually use. I handle both the frontend and the backend, and I enjoy working with a team, joining hackathons, and trying out new tools.</p>
+        <p style="margin-top:.7rem">My team's thesis project, AgapAI, made the Top 25 in the Philippine Startup Challenge. I am still learning every day and I want to keep growing as a developer.</p>
+        <div style="margin-top:1rem">
+          <button class="btn" onclick="showContact('about-contact','email')">Email Me</button>
+          <a class="btn" href="${getCvUrl()}" download="${CV_NAME}">Download CV</a>
+          ${linkButton("My GitHub", GITHUB)}
         </div>
+        <div id="about-contact"></div>
+      </div>
+    </div>`],
+
+  skills: () => ["Skills", `
+    <h3>What I use</h3>
+    <p class="muted">These come from my CV.</p>
+    ${Object.entries(SKILLS).map(([title, list]) => `<h4>${title}</h4>${chips(list)}`).join("")}
+    <h4>Interests</h4>${chips(INTERESTS)}`],
+
+  projects: () => ["Project board", `
+    <h3>My projects</h3>
+    <p class="muted" style="margin-bottom:14px">Tap a folder to see screenshots, files, and links.</p>
+    <div class="grid">
+      ${PROJECTS.map(p => `
+        <button class="card" onclick="openProject('${p.id}')">
+          <div class="folder" style="background:${p.color}"></div>
+          <strong>${p.name}</strong>
+          <small>${p.shots.length} screenshot${p.shots.length > 1 ? "s" : ""} · ${p.tech.slice(0, 2).join(", ")}</small>
+        </button>`).join("")}
+    </div>`],
+
+  certs: () => ["Certificates and badges", `
+    <h3>Certificates</h3>
+    <p class="muted" style="margin-bottom:14px">Tap a certificate to see it bigger.</p>
+    <div class="grid">
+      ${CERTS.map(([file, title, from]) => `
+        <button class="pic" onclick="zoomImage('${file}')">
+          ${imageBox(file, false)}
+          <span>${title}<br><small>${from}</small></span>
+        </button>`).join("")}
+    </div>
+    
+    <h4 style="margin-top:20px;">Philippine Startup Challenge</h4>
+    <div class="grid">
+      <button class="pic" onclick="zoomImage('Philippine Startup Challenge Certificate.png')">
+        ${imageBox("Philippine Startup Challenge Certificate.png", false)}
+        <span>Philippine Startup Challenge Certificate<br><small>Top 25 Achievement</small></span>
+      </button>
     </div>
 
+    <h4>Badges and profiles</h4>
+    ${linkButton("Credly badges", CREDLY)}${linkButton("GitHub profile", GITHUB)}`],
 
-    <!-- JAVASCRIPT LOGIC & STATE ENGINE -->
-    <script>
-        // Default CV Projects Data
-        const projectsData = [
-            {
-                id: 'proj_agapai',
-                title: 'AGAPAI Disaster Mapping & Mobilization',
-                role: 'Lead Data & Backend Developer',
-                timeline: 'June 2026 – Present',
-                category: ['ml', 'civic'],
-                badge: 'Top 25 Philippine Startup Challenge',
-                description: 'Engineered multi-task transformer NLP pipelines (XLM-RoBERTa/mDeBERTa) to classify real-time disaster posts, extract actionable intent, and route volunteer resources during natural calamities. Recognized in the Top 25 of the Philippine Startup Challenge.',
-                badges: ['XLM-RoBERTa', 'mDeBERTa', 'PyTorch', 'Hugging Face', 'FastAPI', 'NLP'],
-                defaultImg: 'agapai.png',
-            },
-            {
-                id: 'proj_speedcare',
-                title: 'SPEEDCARE Clinical Triage & Prioritization',
-                role: 'Full-Stack & Machine Learning Developer',
-                timeline: '2026',
-                category: ['web', 'ml'],
-                badge: 'Full-Stack ML Web App',
-                description: 'Built an intelligent clinical triage web app using Django and React with a dual-layer ML inference engine and demographic priority overrides for vulnerable patients (elderly, infants, critical vitals).',
-                badges: ['Django', 'React', 'Python', 'Scikit-Learn', 'REST API', 'Healthcare AI'],
-                defaultImg: 'speedcare.png',
-            },
-            {
-                id: 'proj_occupancy',
-                title: 'Automated Seat Occupancy Tracking System',
-                role: 'Computer Vision Developer',
-                timeline: '2026',
-                category: ['cv-iot', 'ml'],
-                badge: 'Computer Vision',
-                description: 'Developed a software-driven computer vision occupancy tracking system leveraging Histogram of Oriented Gradients (HOG) feature extraction and Support Vector Machines (SVM) with a non-linear Radial Basis Function (RBF) kernel.',
-                badges: ['OpenCV', 'Python', 'HOG Features', 'SVM (RBF Kernel)', 'Computer Vision'],
-                defaultImg: 'seat-occupancy.jpg',
-            },
-            {
-                id: 'proj_agripulse',
-                title: 'AGRIPULSE PH: Agricultural Price Intelligence',
-                role: 'Backend & Data Analyst',
-                timeline: '2026',
-                category: ['ml', 'civic'],
-                badge: 'Data Analytics & API',
-                description: 'Built a FastAPI analytics backend evaluating 2021–2025 Philippine Statistics Authority (PSA) market data with marketing margins and Granger causality tests to assess agricultural price transparency and supply vulnerabilities.',
-                badges: ['FastAPI', 'Pandas', 'Statsmodels', 'Granger Causality', 'Python Analytics'],
-                defaultImg: 'Farm-gate.jpg',
-            },
-            {
-                id: 'proj_cerv',
-                title: 'CERV Community Emergency Verification',
-                role: 'Software Development Team Member',
-                timeline: '2025',
-                category: ['civic', 'web'],
-                badge: 'Mobile & Web App',
-                description: 'Co-developed a dual-mode community emergency reporting mobile and web application featuring multi-tier user verification, real-time report tracking, and Google Maps API hotspot clustering.',
-                badges: ['Node.js', 'Express.js', 'Google Maps API', 'Firebase', 'Hotspot Clustering'],
-                defaultImg: 'cerv dashboard.png',
-            },
-            {
-                id: 'proj_braille',
-                title: 'BRAILLE TECH: IoT Assistive Device',
-                role: 'IoT & Firmware Developer',
-                timeline: '2025',
-                category: ['cv-iot'],
-                badge: 'Hardware & IoT',
-                description: 'Designed an ESP32-based assistive device translating digital text into tactile Braille in real time using MQTT communication protocols and micro servo motors (SG90) for accessibility.',
-                badges: ['ESP32', 'MQTT Protocols', 'C/C++', 'Micro Servos (SG90)', 'Embedded IoT'],
-                defaultImg: 'Braille system.png',
-            },
-            {
-                id: 'proj_pasadanet',
-                title: 'PASADANET | USJR Hackathon App',
-                role: 'Hackathon Developer',
-                timeline: '2026',
-                category: ['civic', 'web'],
-                badge: 'USJR Hackathon Project',
-                description: 'Built a dual-mode mobile web application addressing public utility vehicle (PUV) economics in Cebu, featuring a route profitability heatmap, driver take-home predictor, and commuter waiting beacon.',
-                badges: ['React', 'Node.js', 'Geospatial Heatmaps', 'Predictive Modeling', 'Hackathon'],
-                defaultImg: 'pasada_net.png',
-            }
-        ];
+  ach: () => ["Achievements", `
+    <h3>Achievements</h3>
 
-        // Certifications Data
-        const certsData = [
-            {
-                id: 'cert_psc',
-                title: 'AGAPAI - Top 25 Philippine Startup Challenge',
-                issuer: 'Philippine Startup Challenge',
-                date: 'September 2026 - Present',
-                category: 'awards',
-                icon: 'fa-trophy',
-                defaultImg: 'psc-top 25.png'
-            },
-            {
-                id: 'cert_ibm_sec',
-                title: 'Cloud Security Certification',
-                issuer: 'IBM SkillsBuild',
-                date: 'October 2026',
-                category: 'ibm',
-                icon: 'fa-shield-halved',
-                defaultImg: 'cloud security.png'
-            },
-            {
-                id: 'cert_ibm_py',
-                title: 'Python for Data Science',
-                issuer: 'IBM Skills Network',
-                date: 'October 2026',
-                category: 'ibm',
-                icon: 'fa-brands fa-python',
-                defaultImg: 'data science-python.png'
-            },
-            {
-                id: 'cert_ibm_sust',
-                title: 'Fundamentals of Sustainability & Tech',
-                issuer: 'IBM SkillsBuild',
-                date: 'October 2026',
-                category: 'ibm',
-                icon: 'fa-seedling',
-                defaultImg: 'sustainability.png'
-            },
-            {
-                id: 'cert_dc_fe',
-                title: 'Feature Engineering for ML in Python',
-                issuer: 'DataCamp',
-                date: 'Completed August 29, 2026',
-                category: 'datacamp',
-                icon: 'fa-gears',
-                defaultImg: 'Feature Engineering.png'
-            },
-            {
-                id: 'cert_dc_genai',
-                title: 'Google Cloud Generative AI Leader',
-                issuer: 'DataCamp',
-                date: 'Completed August 29, 2026',
-                category: 'datacamp',
-                icon: 'fa-wand-magic-sparkles',
-                defaultImg: 'google cloud.png'
-            },
-            {
-                id: 'cert_dc_ai',
-                title: 'AI Fundamentals Certification',
-                issuer: 'DataCamp',
-                date: 'Certified August 29, 2026',
-                category: 'datacamp',
-                icon: 'fa-robot',
-                defaultImg: 'AI fundamentals.png'
-            },
-            {
-                id: 'cert_dc_eu',
-                title: 'EU AI Act Literacy Specialist',
-                issuer: 'DataCamp',
-                date: 'Certified August 28, 2026',
-                category: 'datacamp',
-                icon: 'fa-scale-balanced',
-                defaultImg: 'EU literacy.png'
-            },
-            {
-                id: 'cert_wadhwani',
-                title: 'Ideation, Business Modeling & Finance',
-                issuer: 'Wadhwani Foundation (42 Hrs)',
-                date: 'Completed December 15, 2025',
-                category: 'awards',
-                icon: 'fa-chart-line',
-                defaultImg: 'wadhwani.png'
-            }
-        ];
+    <h4>Top 25, Philippine Startup Challenge</h4>
+    <p>In our AgapAI project, our team made the Top 25.</p>
+    <div class="pair">${clickableImage(TOP25_IMAGE)}${clickableImage("Philippine Startup Challenge Certificate.png")}</div>
+    
+    <div class="grid" style="margin-top:10px;">
+      ${range("psc", 1, 6).map(clickableImage).join("")}
+    </div>
 
-        // Initialize App
-        window.addEventListener('DOMContentLoaded', () => {
-            renderProjects('all');
-            renderCertifications('all');
-            initSparkleCanvas();
-        });
+    <h4>PasadaNet, USJR Hackathon 2026</h4>
+    <p>My team joined the USJR Hackathon 2026 and built PasadaNet. It helps jeepney and bus drivers in Cebu save fuel and money by using gas smartly and wasting less of it. Less wasted gas also means less smoke and dust in the air, which is better for the environment and for everyone on the road.</p>
+    <div class="pair">${HACKATHON_IMAGES.map(clickableImage).join("")}</div>
 
-        // Helper check for video files
-        function isVideoUrl(url = '') {
-            return /\.(mp4|webm|ogg|mov)(?:$|[?#])/i.test(String(url)) || /youtube\.com|youtu\.be|vimeo\.com/i.test(String(url));
-        }
+    <h4>Badges and code</h4>
+    ${linkButton("Credly badges", CREDLY)}${linkButton("GitHub profile", GITHUB)}`],
 
-        function isPdfUrl(url = '') {
-            return /\.pdf(?:$|[?#])/i.test(String(url)) || String(url).startsWith('data:application/pdf');
-        }
+  contact: () => ["Contact", `
+    <h3>Let's collaborate and connect</h3>
+    <p>I'm eager to contribute my skills and support new initiatives. Feel free to connect, I'd love to explore how we can work together!</p>
+    <p style="margin-top:.7rem"></p>
+    <div style="margin-top:12px">
+      <button class="btn" onclick="showContact('contact-box','email')">Email Me</button>
+      <button class="btn" onclick="showContact('contact-box','phone')">Phone</button>
+      ${linkButton("GitHub", GITHUB)}${linkButton("Credly", CREDLY)}
+    </div>
+    <div id="contact-box"></div>
+    <p class="muted" style="margin-top:12px">Cebu City, Philippines</p>`]
+};
 
-        // Render Projects with Autoplay Video Previews
-        function renderProjects(filter = 'all') {
-            const grid = document.getElementById('projectsGrid');
-            grid.innerHTML = '';
 
-            const filtered = projectsData.filter(p => filter === 'all' || p.category.includes(filter));
+/* =====================================================
+   4. WINDOWS AND NAVIGATION
+   ===================================================== */
+function showWindow(title, html, big = false) {
+  $("winTitle").textContent = "C:\\JERAMIE\\" + title.toLowerCase().replace(/ /g, "_");
+  $("body").innerHTML = html;
+  $("win").classList.toggle("big", big);
+  $("win").classList.add("on");
+  $("body").scrollTop = 0;
+}
+function openWindow(name) {
+  if (name === "home") return closeWindow();
+  const [title, html] = SECTIONS[name]();
+  showWindow(title, html);
+}
+function closeWindow() { $("win").classList.remove("on"); }
+function enterPortfolio() { $("welcome").classList.add("off"); }
 
-            filtered.forEach(p => {
-                const displayImg = p.defaultImg;
-                const isVid = isVideoUrl(displayImg);
+function zoomImage(file) {
+  $("zoomBox").innerHTML = imageBox(file);
+  $("zoom").classList.add("on");
+}
 
-                const card = document.createElement('div');
-                card.className = 'glass-card glass-card-hover rounded-3xl overflow-hidden flex flex-col justify-between transition duration-300 border border-purple-500/20 group';
-                
-                let mediaHtml = '';
-                if (isVid) {
-                    mediaHtml = `
-                        <video class="w-full h-full object-cover group-hover:scale-105 transition duration-500" autoplay loop muted playsinline preload="metadata">
-                            <source src="${displayImg}" type="video/mp4">
-                        </video>
-                        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-                            <div class="w-10 h-10 rounded-full bg-purple-600/80 text-white flex items-center justify-center text-sm shadow-lg backdrop-blur-sm opacity-80 group-hover:opacity-100 group-hover:scale-110 transition">
-                                <i class="fa-solid fa-play ml-0.5"></i>
-                            </div>
-                        </div>
-                    `;
-                } else {
-                    mediaHtml = `
-                        <img src="${displayImg}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'">
-                    `;
-                }
+// Shows the email or phone number with a Copy button
+function showContact(boxId, type) {
+  const value = type === "email" ? EMAIL : PHONE;
+  const link = (type === "email" ? "mailto:" : "tel:") + value;
+  $(boxId).innerHTML = `
+    <div class="reveal">
+      <a href="${link}">${value}</a>
+      <button class="copy" onclick="copyText('${value}', this)">Copy</button>
+    </div>`;
+}
+function copyText(text, button) {
+  const done = () => { button.textContent = "Copied!"; };
+  const oldWay = () => { // for browsers without the clipboard tool
+    const box = document.createElement("textarea");
+    box.value = text; document.body.appendChild(box); box.select();
+    try { document.execCommand("copy"); done(); } catch (e) { button.textContent = "Press and hold to copy"; }
+    box.remove();
+  };
+  if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done, oldWay);
+  else oldWay();
+}
 
-                card.innerHTML = `
-                    <div>
-                        <!-- Thumbnail Container -->
-                        <div class="relative h-48 w-full bg-navy-900 overflow-hidden cursor-pointer" onclick="openProjectModal('${p.id}')">
-                            ${mediaHtml}
-                            <div class="absolute inset-0 bg-gradient-to-t from-navy-950 via-transparent to-transparent opacity-80"></div>
-                            
-                            <!-- Category Badge -->
-                            <span class="absolute top-3 left-3 bg-navy-900/90 text-purple-300 border border-purple-400/30 text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider backdrop-blur-md">
-                                ${p.badge}
-                            </span>
-                        </div>
 
-                        <!-- Content Body -->
-                        <div class="p-6 space-y-3">
-                            <div class="flex items-center justify-between text-[11px] text-purple-300 font-semibold">
-                                <span>${p.role}</span>
-                                <span class="text-slate-400">${p.timeline}</span>
-                            </div>
+/* =====================================================
+   5. PROJECT DETAILS AND SCREENSHOT GALLERY
+   ===================================================== */
+let gallery = { project: null, index: 0 };
 
-                            <h3 class="text-lg font-bold text-white group-hover:text-purple-300 transition cursor-pointer" onclick="openProjectModal('${p.id}')">
-                                ${p.title}
-                            </h3>
+function openProject(id) {
+  const p = PROJECTS.find(x => x.id === id);
+  gallery = { project: p, index: 0 };
 
-                            <p class="text-xs text-slate-300 line-clamp-3 leading-relaxed">
-                                ${p.description}
-                            </p>
-                        </div>
-                    </div>
+  const docs = p.docs.map(file => `
+    <span class="chip"> ${file}
+      <a href="${FILE_FOLDER}${encodeURIComponent(file)}" target="_blank" rel="noopener">View</a> ·
+      <a href="${FILE_FOLDER}${encodeURIComponent(file)}" download="${file}">Download</a>
+    </span>`).join("");
 
-                    <!-- Bottom Badges & Trigger -->
-                    <div class="p-6 pt-0 space-y-4">
-                        <div class="flex flex-wrap gap-1.5">
-                            ${p.badges.slice(0, 3).map(b => `<span class="text-[10px] font-medium bg-purple-900/30 text-purple-200 border border-purple-500/20 px-2 py-0.5 rounded-md">${b}</span>`).join('')}
-                            ${p.badges.length > 3 ? `<span class="text-[10px] font-medium text-slate-400 px-1.5 py-0.5">+${p.badges.length - 3} more</span>` : ''}
-                        </div>
+  showWindow(p.name, `
+    <button class="back" onclick="openWindow('projects')">‹ All projects</button>
+    <h3>${p.name}</h3>
+    <p>${p.about}</p>
 
-                        <div class="flex items-center justify-between pt-2 border-t border-purple-500/10">
-                            <button onclick="openProjectModal('${p.id}')" class="text-xs font-bold text-purple-300 hover:text-white flex items-center gap-1.5 transition">
-                                <span>View Details & Demo</span>
-                                <i class="fa-solid fa-circle-chevron-right text-xs"></i>
-                            </button>
-                        </div>
-                    </div>
-                `;
+    <h4>Technologies</h4>${chips(p.tech)}
 
-                grid.appendChild(card);
-            });
-        }
+    <h4>Documentation</h4>
+    ${docs ? `<div class="chips">${docs}</div>` : `<p class="muted">No document yet.</p>`}
 
-        function filterProjects(filter) {
-            document.querySelectorAll('.proj-filter-btn').forEach(btn => {
-                if (btn.dataset.filter === filter) {
-                    btn.className = 'proj-filter-btn px-3.5 py-1.5 rounded-xl text-xs font-semibold transition bg-purple-600 text-white shadow-md';
-                } else {
-                    btn.className = 'proj-filter-btn px-3.5 py-1.5 rounded-xl text-xs font-semibold text-slate-300 hover:text-white transition';
-                }
-            });
-            renderProjects(filter);
-        }
+    ${p.links.length ? `<h4>Links</h4>${p.links.map(([text, url]) => linkButton(text, url)).join("")}` : ""}
 
-        // Render Certifications
-        function renderCertifications(filter = 'all') {
-            const grid = document.getElementById('certsGrid');
-            grid.innerHTML = '';
+    <h4>Screenshots</h4>
+    <div class="nav">
+      <button onclick="stepGallery(-1)" aria-label="Previous">‹</button>
+      <span class="muted" id="galleryCount"></span>
+      <button onclick="stepGallery(1)" aria-label="Next">›</button>
+    </div>
+    <div class="main" id="galleryMain"></div>
+    <div class="thumbs">
+      ${p.shots.range ? '' : p.shots.map((file, i) => `<button id="thumb${i}" onclick="showShot(${i})" aria-label="${file}">${imageBox(file, false)}</button>`).join("")}
+    </div>`, true);
 
-            const filtered = certsData.filter(c => filter === 'all' || c.category === filter);
+  showShot(0);
+}
 
-            filtered.forEach(c => {
-                const displayImg = c.defaultImg;
+function showShot(i) {
+  const shots = gallery.project.shots;
+  gallery.index = (i + shots.length) % shots.length;
+  $("galleryMain").innerHTML = imageBox(shots[gallery.index]);
+  $("galleryCount").textContent = `${gallery.index + 1} of ${shots.length}`;
+  shots.forEach((_, n) => $("thumb" + n).classList.toggle("cur", n === gallery.index));
+}
+function stepGallery(direction) { showShot(gallery.index + direction); }
 
-                const card = document.createElement('div');
-                card.className = 'glass-card glass-card-hover rounded-2xl p-5 border border-purple-500/20 flex flex-col justify-between space-y-4 group';
 
-                card.innerHTML = `
-                    <div class="space-y-3">
-                        <div class="flex items-center justify-between">
-                            <div class="w-10 h-10 rounded-xl bg-purple-600/30 border border-purple-400/30 flex items-center justify-center text-purple-300 text-lg">
-                                <i class="fa-solid ${c.icon}"></i>
-                            </div>
-                            <span class="text-[10px] font-semibold text-slate-400 uppercase tracking-wider">${c.issuer}</span>
-                        </div>
+/* =====================================================
+   6. START UP
+   ===================================================== */
+document.addEventListener("DOMContentLoaded", () => {
+  // bottom dock
+  $("dock").innerHTML = DOCK.map(([name, icon, label, color]) =>
+    `<button style="background:${color}" onclick="openWindow('${name}')" aria-label="${label}">${icon}<span>${label}</span></button>`
+  ).join("");
 
-                        <div>
-                            <h3 class="text-base font-bold text-white group-hover:text-purple-300 transition">${c.title}</h3>
-                            <p class="text-xs text-purple-300 font-medium mt-0.5">${c.date}</p>
-                        </div>
+  // floating folders and previews
+  DESK_ITEMS.forEach((item, i) => {
+    const button = document.createElement("button");
+    button.className = "fl" + (item.tile ? " hide" : "");
+    button.style.cssText = `${item.pos};animation-delay:-${i * 1.4}s`;
+    button.innerHTML = (item.tile
+      ? `<div class="tile" style="background:${item.bg};color:${item.fg}">${item.tile}</div>`
+      : `<div class="folder" style="background:${item.color}"></div>`) + item.label;
+    button.onclick = item.go;
+    $("desk").appendChild(button);
+  });
 
-                        <!-- Cert Image Thumbnail Preview -->
-                        <div class="w-full h-32 rounded-xl overflow-hidden bg-navy-950 border border-purple-500/20 relative group-hover:border-purple-400/40 transition cursor-pointer" onclick="openCertImageModal('${displayImg}', '${c.title}')">
-                            ${isPdfUrl(displayImg) ? `<div class="w-full h-full flex flex-col items-center justify-center gap-2 text-purple-200"><i class="fa-solid fa-file-pdf text-3xl"></i><span class="text-xs font-semibold">PDF certificate</span><span class="text-[10px] text-slate-400">Open document</span></div>` : `<img src="${displayImg}" alt="${c.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" onerror="this.style.display='none'">`}
-                            <div class="absolute inset-0 bg-navy-950/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"><span class="bg-purple-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-full shadow">View Proof</span></div>
-                        </div>
-                    </div>
+  // Esc closes the preview and the window
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape") { $("zoom").classList.remove("on"); closeWindow(); }
+  });
+});
+</script>
 
-                    <div class="pt-2 border-t border-purple-500/10 flex items-center justify-between">
-                        <button onclick="openCertImageModal('${displayImg}', '${c.title}')" class="text-xs font-semibold text-purple-300 hover:text-white transition flex items-center gap-1">
-                            <i class="fa-regular fa-image text-xs"></i>
-                            <span>View Certificate</span>
-                        </button>
-                        <a href="${displayImg}" target="_blank" rel="noopener noreferrer" class="text-xs text-slate-400 hover:text-purple-300 transition flex items-center gap-1">
-                            <i class="fa-solid ${isPdfUrl(displayImg) ? 'fa-file-pdf' : 'fa-arrow-up-right-from-square'} text-[10px]"></i>
-                            <span>${isPdfUrl(displayImg) ? 'Open PDF' : 'Open file'}</span>
-                        </a>
-                    </div>
-                `;
-
-                grid.appendChild(card);
-            });
-        }
-
-        function filterCerts(filter) {
-            document.querySelectorAll('.cert-filter-btn').forEach(btn => {
-                if (btn.dataset.cert === filter) {
-                    btn.className = 'cert-filter-btn px-4 py-1.5 rounded-full text-xs font-medium bg-purple-600 text-white border border-purple-400/40 shadow-md';
-                } else {
-                    btn.className = 'cert-filter-btn px-4 py-1.5 rounded-full text-xs font-medium text-slate-300 hover:text-white glass-card';
-                }
-            });
-            renderCertifications(filter);
-        }
-
-        function renderMediaPreview(container, url, video, title) {
-            const safeTitle = String(title || 'Portfolio media').replace(/[<>"']/g, '');
-            if (isPdfUrl(url)) {
-                container.innerHTML = `<iframe src="${url}#toolbar=1&navpanes=0" title="${safeTitle}" class="w-full h-full" loading="lazy"></iframe><a href="${url}" target="_blank" rel="noopener noreferrer" class="absolute bottom-3 right-3 px-3 py-2 rounded-lg bg-purple-700 text-white text-xs font-semibold shadow-lg">Open PDF in new tab</a>`;
-            } else if (video) {
-                container.innerHTML = `<video src="${url}" controls autoplay loop muted playsinline class="w-full h-full object-contain bg-black"><source src="${url}" type="video/mp4"></video><a href="${url}" target="_blank" rel="noopener noreferrer" class="absolute bottom-3 right-3 px-3 py-2 rounded-lg bg-purple-700 text-white text-xs font-semibold shadow-lg">Open video</a>`;
-            } else {
-                container.innerHTML = `<img src="${url}" alt="${safeTitle}" class="w-full h-full object-contain rounded-2xl" onerror="this.style.display='none'; this.parentElement.insertAdjacentHTML('beforeend','<p class=\'p-4 text-sm text-slate-300\'>Media file not found. Make sure the file is uploaded to GitHub with the exact filename.</p>')">`;
-            }
-        }
-
-        // Project Modal Handling
-        function openProjectModal(projectId) {
-            const proj = projectsData.find(p => p.id === projectId);
-            if (!proj) return;
-
-            const displayUrl = proj.defaultImg;
-            const isVid = isVideoUrl(displayUrl);
-
-            document.getElementById('pModalCategory').innerText = proj.badge;
-            document.getElementById('pModalTitle').innerText = proj.title;
-            document.getElementById('pModalRole').innerText = `${proj.role} • ${proj.timeline}`;
-            document.getElementById('pModalDesc').innerText = proj.description;
-
-            const badgesContainer = document.getElementById('pModalBadges');
-            badgesContainer.innerHTML = proj.badges.map(b => `<span class="text-xs font-semibold bg-purple-900/40 text-purple-200 border border-purple-500/30 px-3 py-1 rounded-xl">${b}</span>`).join('');
-
-            const mediaBox = document.getElementById('pModalMediaContainer');
-            renderMediaPreview(mediaBox, displayUrl, isVid, proj.title);
-
-            const modal = document.getElementById('projectModal');
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
-        }
-
-        function closeProjectModal() {
-            const modal = document.getElementById('projectModal');
-            modal.classList.add('hidden');
-            modal.classList.remove('flex');
-        }
-
-        function openCertImageModal(imgUrl, title) {
-            const mediaBox = document.getElementById('pModalMediaContainer');
-            if (isPdfUrl(imgUrl)) {
-                mediaBox.innerHTML = `<iframe src="${imgUrl}#toolbar=1&navpanes=0" title="${title}" class="w-full h-full rounded-2xl" loading="lazy"></iframe><a href="${imgUrl}" target="_blank" rel="noopener noreferrer" class="absolute bottom-3 right-3 px-3 py-2 rounded-lg bg-purple-700 text-white text-xs font-semibold shadow-lg">Open PDF in new tab</a>`;
-            } else {
-                mediaBox.innerHTML = `<img src="${imgUrl}" alt="${title}" class="w-full h-full object-contain rounded-2xl">`;
-            }
-
-            document.getElementById('pModalCategory').innerText = 'Verified Credential';
-            document.getElementById('pModalTitle').innerText = title;
-            document.getElementById('pModalRole').innerText = 'Official Certificate Proof';
-            document.getElementById('pModalDesc').innerText = 'Official verification scan and certificate media stored in portfolio registry.';
-            document.getElementById('pModalBadges').innerHTML = '<span class="text-xs font-semibold bg-green-900/40 text-green-300 border border-green-500/30 px-3 py-1 rounded-xl">Verified Certificate</span>';
-
-            const modal = document.getElementById('projectModal');
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
-        }
-
-        // Utility: Copy to Clipboard & Toast
-        function copyToClipboard(text, message) {
-            const tempInput = document.createElement('input');
-            tempInput.value = text;
-            document.body.appendChild(tempInput);
-            tempInput.select();
-            document.execCommand('copy');
-            document.body.removeChild(tempInput);
-            showToast(message || 'Copied to clipboard!');
-        }
-
-        function showToast(msg, type = 'success') {
-            const container = document.getElementById('toast-container');
-            const toast = document.createElement('div');
-            toast.className = `pointer-events-auto px-4 py-3 rounded-2xl shadow-2xl backdrop-blur-md text-xs font-bold border flex items-center gap-2 transition-all duration-300 transform translate-y-2 ${
-                type === 'error' ? 'bg-red-900/90 border-red-500 text-white' : 'bg-purple-900/90 border-purple-400 text-purple-100'
-            }`;
-            toast.innerHTML = `<i class="fa-solid ${type === 'error' ? 'fa-triangle-exclamation' : 'fa-circle-check'}"></i><span>${msg}</span>`;
-            
-            container.appendChild(toast);
-            setTimeout(() => {
-                toast.classList.add('opacity-0', '-translate-y-2');
-                setTimeout(() => toast.remove(), 300);
-            }, 4000);
-        }
-
-        // Particle Canvas Sparkle Effect
-        function initSparkleCanvas() {
-            const canvas = document.getElementById('sparkleCanvas');
-            if (!canvas) return;
-            const ctx = canvas.getContext('2d');
-
-            let width = (canvas.width = window.innerWidth);
-            let height = (canvas.height = window.innerHeight);
-
-            window.addEventListener('resize', () => {
-                width = canvas.width = window.innerWidth;
-                height = canvas.height = window.innerHeight;
-            });
-
-            const particles = Array.from({ length: 65 }, () => ({
-                x: Math.random() * width,
-                y: Math.random() * height,
-                radius: Math.random() * 1.8 + 0.5,
-                alpha: Math.random(),
-                speed: Math.random() * 0.015 + 0.005,
-                color: Math.random() > 0.5 ? '#A855F7' : '#C084FC'
-            }));
-
-            function animate() {
-                ctx.clearRect(0, 0, width, height);
-                particles.forEach(p => {
-                    p.alpha += p.speed;
-                    if (p.alpha > 1 || p.alpha < 0) p.speed = -p.speed;
-
-                    ctx.beginPath();
-                    ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-                    ctx.fillStyle = p.color;
-                    ctx.globalAlpha = Math.max(0, Math.min(1, p.alpha * 0.6));
-                    ctx.fill();
-                });
-                requestAnimationFrame(animate);
-            }
-            animate();
-        }
-    </script>
+<!-- =====================================================
+     FILE DATA – your portrait photos and CV, stored inside
+     this page. You do not need to edit anything below.
+     ===================================================== -->
+<script>
+const FILES = {
+  photo: "files/Professional Passport Portrait.png",
+  photo2: "files/Professional Passport Portrait.png"
+}
+</script>
 </body>
 </html>
