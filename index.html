@@ -313,16 +313,16 @@ const PROJECTS = [
   }
 ];
 
-/* ---------- Certificates: [file, title, where it is from] ---------- */
+/* ---------- Certificates: [file, title, where it is from, verification link] ---------- */
 const CERTS = [
-  ["wadhwani-Certificate.png", "Wadhwani Foundation", "42 hours, finished Dec 15, 2025"],
-  ["AI fundamentals-Certificate.png", "AI Fundamentals", "DataCamp"],
-  ["google cloud-Certificate.png", "Google Cloud Generative AI Leader", "DataCamp"],
-  ["Feature Engineering-Certificate.png", "Feature Engineering for Machine Learning in Python", "DataCamp"],
-  ["sustainability-Certificate.png", "Fundamentals of Sustainability and Technology", "IBM SkillsBuild"],
-  ["cloud security-Certificate.png", "Cloud Security", "IBM SkillsBuild"],
-  ["data science-python-Certificate1.png", "Python for Data Science (1)", "IBM Skills Network"],
-  ["data science-python-Certificate2.png", "Python for Data Science (2)", "IBM Skills Network"]
+  ["wadhwani-Certificate.png", "Wadhwani Foundation", "42 hours, finished Dec 15, 2025", ""],
+  ["AI fundamentals-Certificate.png", "AI Fundamentals", "DataCamp", "https://www.datacamp.com/skill-verification/AIF0020551756655"],
+  ["google cloud-Certificate.png", "Google Cloud Generative AI Leader", "DataCamp", "https://www.datacamp.com/completed/statement-of-accomplishment/track/cf5b4588bc4806232cb451c9aa80fb007cc0b589?utm_medium=organic_social&utm_campaign=sharewidget&utm_content=soa"],
+  ["Feature Engineering-Certificate.png", "Feature Engineering for Machine Learning in Python", "DataCamp", "https://www.datacamp.com/completed/statement-of-accomplishment/course/89b584b46224579d6f025acb647e5791f0a9eca7?utm_medium=organic_social&utm_campaign=sharewidget&utm_content=soa"],
+  ["sustainability-Certificate.png", "Fundamentals of Sustainability and Technology", "IBM SkillsBuild", ""],
+  ["cloud security-Certificate.png", "Cloud Security", "IBM SkillsBuild", ""],
+  ["data science-python-Certificate1.png", "Python for Data Science (1)", "IBM Skills Network", ""],
+  ["data science-python-Certificate2.png", "Python for Data Science (2)", "IBM Skills Network", ""]
 ];
 
 /* ---------- Skills ---------- */
@@ -450,11 +450,14 @@ const SECTIONS = {
     <h3>Certificates</h3>
     <p class="muted" style="margin-bottom:14px">Tap a certificate to see it bigger.</p>
     <div class="grid">
-      ${CERTS.map(([file, title, from]) => `
-        <button class="pic" onclick="zoomImage('${file}')">
-          ${imageBox(file, false)}
-          <span>${title}<br><small>${from}</small></span>
-        </button>`).join("")}
+      ${CERTS.map(([file, title, from, url]) => `
+        <div>
+          <button class="pic" onclick="zoomImage('${file}')">
+            ${imageBox(file, false)}
+            <span>${title}<br><small>${from}</small></span>
+          </button>
+          ${url ? `<p style="margin-top:8px"><a class="btn" href="${url}" target="_blank" rel="noopener">View Certificate</a></p>` : ""}
+        </div>`).join("")}
     </div>
     
     <h4 style="margin-top:20px;">Philippine Startup Challenge</h4>
