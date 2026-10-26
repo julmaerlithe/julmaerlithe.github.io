@@ -307,22 +307,25 @@ const PROJECTS = [
     id: "agapai", name: "AgapAI", color: "#ec4899",
     about: "A disaster mapping and volunteer project. It helps people hit by a disaster and the volunteers who want to help them find each other on a map. I am the lead for data and backend. I build language models that sort real-time disaster posts, so the important ones do not get missed. This is our thesis project. Our team made the Top 25 in the Philippine Startup Challenge. The system is still a work in progress. It already works, and we keep fixing it, testing it, and adding more to it.",
     tech: ["Python", "PyTorch", "Hugging Face Transformers", "XLM-RoBERTa / mDeBERTa"],
-    docs: ["WOOPSIE_PresentationDeck_PSC11-AgaAI.pdf"],
-    links: [["GitHub repo", "https://github.com/bncnttt/AgapAI"]],
+    docs: [],
+    links: [
+      ["Project presentation", "https://drive.google.com/file/d/11_Lvpo_ZpKEY1pCGH3tNr95tnViUAJsC/view?usp=sharing"],
+      ["GitHub repo", "https://github.com/bncnttt/AgapAI"]
+    ],
     shots: ["agapai.png", "agapai2.png", "agapai3.png"]
   }
 ];
 
-/* ---------- Certificates: [file, title, where it is from, verification link] ---------- */
+/* ---------- Certificates: [file, title, where it is from] ---------- */
 const CERTS = [
-  ["wadhwani-Certificate.png", "Wadhwani Foundation", "42 hours, finished Dec 15, 2025", ""],
+  ["wadhwani-Certificate.png", "Wadhwani Foundation", "42 hours, finished Dec 15, 2025"],
   ["AI fundamentals-Certificate.png", "AI Fundamentals", "DataCamp", "https://www.datacamp.com/skill-verification/AIF0020551756655"],
   ["google cloud-Certificate.png", "Google Cloud Generative AI Leader", "DataCamp", "https://www.datacamp.com/completed/statement-of-accomplishment/track/cf5b4588bc4806232cb451c9aa80fb007cc0b589?utm_medium=organic_social&utm_campaign=sharewidget&utm_content=soa"],
   ["Feature Engineering-Certificate.png", "Feature Engineering for Machine Learning in Python", "DataCamp", "https://www.datacamp.com/completed/statement-of-accomplishment/course/89b584b46224579d6f025acb647e5791f0a9eca7?utm_medium=organic_social&utm_campaign=sharewidget&utm_content=soa"],
-  ["sustainability-Certificate.png", "Fundamentals of Sustainability and Technology", "IBM SkillsBuild", ""],
-  ["cloud security-Certificate.png", "Cloud Security", "IBM SkillsBuild", ""],
-  ["data science-python-Certificate1.png", "Python for Data Science (1)", "IBM Skills Network", ""],
-  ["data science-python-Certificate2.png", "Python for Data Science (2)", "IBM Skills Network", ""]
+  ["sustainability-Certificate.png", "Fundamentals of Sustainability and Technology", "IBM SkillsBuild"],
+  ["cloud security-Certificate.png", "Cloud Security", "IBM SkillsBuild"],
+  ["data science-python-Certificate1.png", "Python for Data Science (1)", "IBM Skills Network"],
+  ["data science-python-Certificate2.png", "Python for Data Science (2)", "IBM Skills Network"]
 ];
 
 /* ---------- Skills ---------- */
@@ -456,7 +459,7 @@ const SECTIONS = {
             ${imageBox(file, false)}
             <span>${title}<br><small>${from}</small></span>
           </button>
-          ${url ? `<p style="margin-top:8px"><a class="btn" href="${url}" target="_blank" rel="noopener">View Certificate</a></p>` : ""}
+          ${url ? `<div style="margin-top:8px">${linkButton("View certificate", url)}</div>` : ""}
         </div>`).join("")}
     </div>
     
