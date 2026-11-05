@@ -6,7 +6,7 @@
 <title>Jeramie Anne Losorata – Portfolio</title>
 <meta name="description" content="Personal portfolio of Jeramie Anne Losorata, Computer Science student and aspiring developer from Cebu City.">
 <script>
-  /* Apply the saved theme before the page paints so there is no flash */
+
   try { document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"; } catch (e) {}
 </script>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Caveat:wght@600;700&family=Space+Mono:wght@400;700&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -269,7 +269,7 @@ body,.card,.win,.hero,.btn{transition:background-color .25s,color .25s}
 
 <script>
 /* =====================================================
-   1. YOUR CONTENT  – edit this part to update the site
+   1. CONTENT  – update the site
    ===================================================== */
 const EMAIL  = "jeramieanne.losorata.23@usjr.edu.ph";
 const PHONE  = "09161612218";
@@ -619,11 +619,11 @@ function submitContact(e) {
 // Escape text coming from outside so it cannot inject HTML
 const esc = t => String(t ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 
-// Repos you do not want listed
+// Repos to not want listed
 const HIDE_REPOS = ["CERV-", "FINAL-SEAT-DETECTION-PROJECT-GVC", "Seat-Occupancy-AVR", "AVRRRRR"].map(n => n.toLowerCase());
 const isHidden = name => HIDE_REPOS.includes(name.toLowerCase()) || /^avr+$/i.test(name); // also catches AVR, AVRR, AVRRR...
 
-// Custom titles and descriptions (keyed by exact repo name). Other repos use their GitHub description.
+// Custom titles and descriptions (keyed by exact repo name). GitHub description.
 const REPO_INFO = {
   "PHP-MVP-FRAMEWORK-FINALS-PROJECT": {
     title: "Custom PHP MVC Framework - Task Manager",
@@ -748,8 +748,8 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 
 <!-- =====================================================
-     FILE DATA – your portrait photos and CV, stored inside
-     this page. You do not need to edit anything below.
+     FILE DATA – portrait photos and CV, stored inside
+     this page. 
      ===================================================== -->
 <script>
 const FILES = {
