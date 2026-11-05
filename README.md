@@ -1,6 +1,11 @@
 # Jeramie Anne Losorata – Personal Portfolio
 
+<<<<<<< HEAD
 A personal portfolio website with a playful desktop-style interface. It shows my profile, projects, skills, certificates, achievements and a contact form. 
+=======
+## Short Description
+A personal portfolio website with a playful desktop-style interface. It shows my profile, projects, skills, certificates, achievements and a contact form. Built for the Mata Technologies Web Development Intern Challenge.
+>>>>>>> 0b4671b (additional infos)
 
 ## Live Website
 🔗 **https://julmaerlithe.github.io**

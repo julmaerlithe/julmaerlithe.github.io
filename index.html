@@ -4,6 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Jeramie Anne Losorata – Portfolio</title>
+<meta name="description" content="Personal portfolio of Jeramie Anne Losorata, Computer Science student and aspiring developer from Cebu City.">
+<script>
+  /* Apply the saved theme before the page paints so there is no flash */
+  try { document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"; } catch (e) {}
+</script>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Caveat:wght@600;700&family=Space+Mono:wght@400;700&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
 <style>
@@ -142,11 +147,40 @@ button.btn{cursor:pointer}
 .reveal a{padding:8px 0;color:var(--ink);font:700 .95rem var(--mono);word-break:break-all}
 .reveal .copy{min-height:40px;padding:0 16px;border:2px solid var(--ink);border-radius:10px;background:var(--card);color:var(--ink);font:700 .88rem var(--display);cursor:pointer}
 
+
+/* DARK MODE (saved in localStorage) */
+:root[data-theme="dark"]{--paper:#1c1d17;--card:#26271f;--ink:#f1ecd9;--muted:#b0ad98;--line:#3d3e33;--soft:#2f3027;--olive2:#3b4220;--pink2:#5a2d44;--peach:#5a4128}
+:root[data-theme="dark"] .btn,:root[data-theme="dark"] .hero button,:root[data-theme="dark"] .zoom button{color:#25251d}
+:root[data-theme="dark"] .polaroid::after{color:#25251d}
+:root[data-theme="dark"] .dock button img{filter:invert(1)}
+:root[data-theme="dark"] .dock button:hover img,:root[data-theme="dark"] .dock button:focus-visible img{filter:none}
+:root[data-theme="dark"] .desk::before{color:#3a2433}
+body,.card,.win,.hero,.btn{transition:background-color .25s,color .25s}
+
+/* CONTACT FORM */
+.cform{display:grid;gap:12px;max-width:520px;margin-top:20px}
+.cform label{display:grid;gap:5px;font:700 .8rem var(--mono);letter-spacing:.05em}
+.cform input,.cform textarea{width:100%;padding:10px 12px;border:2px solid var(--ink);border-radius:8px;background:var(--card);color:var(--ink);font:400 1rem Inter,system-ui,sans-serif;box-shadow:3px 3px 0 var(--ink)}
+.cform input:focus,.cform textarea:focus{outline:3px solid var(--pink);outline-offset:1px}
+.cform textarea{resize:vertical;min-height:110px}
+.cform .ok{padding:10px 12px;border:2px solid var(--ink);border-radius:10px;background:var(--olive2);font:700 .9rem var(--mono)}
+
+/* GITHUB REPOS (fetched from the GitHub API) */
+.repos{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.repo{display:block;padding:12px;border:2px solid var(--ink);border-radius:10px;background:var(--soft);color:var(--ink);text-decoration:none;box-shadow:3px 3px 0 var(--ink);transition:transform .12s,box-shadow .12s}
+.repo:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 var(--ink)}
+.repo b{display:block;font:800 .95rem var(--display);word-break:break-word}
+.repo p{margin:.3rem 0;font-size:.85rem;color:var(--muted)}
+.repo small{color:var(--muted);font:400 .72rem var(--mono)}
+
+/* SCROLL / OPEN FADE-IN */
+.fade{animation:fadeUp .5s ease-out both}
+
 @media (max-width:700px){
   .wtext{text-align:center}.wtext h1 em{left:50%;transform:translateX(-50%);white-space:nowrap}
   .tile,.fl.hide,.desk::after{display:none}
   .hero .hb{grid-template-columns:72px 1fr;padding:16px}.hero .hb img{width:72px;height:72px}
-  .dock{gap:5px;padding:8px}.dock button{width:40px;height:40px;font-size:1.15rem}.dock button span{display:none}
+  .dock{gap:4px;padding:8px;max-width:calc(100vw - 8px)}.dock button{width:36px;height:36px;font-size:1.05rem}.dock button img{width:20px;height:20px}.dock button span{display:none}
   .win,.win.big{top:env(safe-area-inset-top,0px);left:0;bottom:0;width:100%;max-height:none;transform:none;border-radius:0;border-width:0}
   .win.on{animation:none}
   .body,.win.big .body{padding:16px 16px 100px}
@@ -253,7 +287,7 @@ const range = (name, from, to, ext = ".png") =>
 /* ---------- Projects ---------- */
 const PROJECTS = [
   {
-    id: "speedcare", name: "SpeedCare", color: "#a855f7",
+    id: "speedcare", name: "SpeedCare: AI-Powered Medical Triage System", color: "#a855f7",
     about: "A clinic queue web app that helps a clinic decide who should be seen first. It uses two layers of machine learning, and it gives extra priority to vulnerable patients. I worked on the frontend and the backend, and also on the machine learning and data analysis. For the machine learning, I used Scikit-Learn with TF-IDF vectorizers and classification models to sort patients. The screens are made with React and Axios, and the backend runs on Django REST Framework (DRF).",
     tech: ["Django REST Framework", "React", "Axios", "Scikit-Learn", "TF-IDF", "Machine Learning"],
     docs: ["speedcare_project.pdf", "SpeedCare_Technical_Report.md"],
@@ -272,7 +306,7 @@ const PROJECTS = [
     shots: range("cerv", 1, 13)
   },
   {
-    id: "pasada", name: "PasadaNet", color: "#f97316",
+    id: "pasada", name: "PasadaNet USJR Hackathon 2026", color: "#f97316",
     about: "A hackathon project for jeepney and bus drivers in Cebu, and for commuters too. Drivers can check if a trip will earn money or lose money. Commuters can show that they are waiting and see which vehicle will come first. It is a working prototype app that you can really try.",
     tech: ["HTML", "CSS", "JavaScript"],
     docs: ["README-PASADA_NET Hackathon.md"],
@@ -288,7 +322,7 @@ const PROJECTS = [
     shots: range("seat-occupancy", 1, 10)
   },
   {
-    id: "braille", name: "Braille System", color: "#eab308",
+    id: "braille", name: "Braille Tech: IoT-Enabled Assistive Device", color: "#eab308",
     about: "A small device that turns digital text into Braille you can feel, in real time. It uses an ESP32 board, MQTT messages, and tiny servo motors.",
     tech: ["ESP32", "MQTT", "SG90 servo motors"],
     docs: ["Braille Tech project.pdf"],
@@ -304,10 +338,10 @@ const PROJECTS = [
     shots: range("agriPrice", 1, 17)
   },
   {
-    id: "agapai", name: "AgapAI", color: "#ec4899",
+    id: "agapai", name: "AgapAI: Disaster Relief Coordination System", color: "#ec4899",
     about: "A disaster mapping and volunteer project. It helps people hit by a disaster and the volunteers who want to help them find each other on a map. I am the lead for data and backend. I build language models that sort real-time disaster posts, so the important ones do not get missed. This is our thesis project. Our team made the Top 25 in the Philippine Startup Challenge. The system is still a work in progress. It already works, and we keep fixing it, testing it, and adding more to it.",
     tech: ["Python", "PyTorch", "Hugging Face Transformers", "XLM-RoBERTa / mDeBERTa"],
-    docs: [],
+    docs: ["README_AgapAI.md"],
     links: [
       ["Project presentation", "https://drive.google.com/file/d/11_Lvpo_ZpKEY1pCGH3tNr95tnViUAJsC/view?usp=sharing"],
       ["GitHub repo", "https://github.com/bncnttt/AgapAI"]
@@ -348,7 +382,8 @@ const DOCK = [
   ["projects", '<img src="' + IMG_FOLDER + 'folder-open-solid-full.svg" alt="Projects">', "Projects", "#ff5fc8"],
   ["certs", '<img src="' + IMG_FOLDER + 'bookmark-solid-full.svg" alt="Certificates">', "Certificates and badges", "#ff8a4c"],
   ["ach", '<img src="' + IMG_FOLDER + 'trophy-solid-full.svg" alt="Achievements">', "Achievements", "#3ed16b"],
-  ["contact", '<img src="' + IMG_FOLDER + 'envelope-solid-full.svg" alt="Contact">', "Contact", "#b86cff"]
+  ["contact", '<img src="' + IMG_FOLDER + 'envelope-solid-full.svg" alt="Contact">', "Contact", "#b86cff"],
+  ["theme", '<img src="' + IMG_FOLDER + 'dark-mode-svgrepo-com.svg" alt="Dark / light mode">', "Dark / light mode", "#fff7"]
 ];
 
 /* ---------- Floating folders and previews on the desktop ---------- */
@@ -391,20 +426,8 @@ const chips = list => `<div class="chips">${list.map(t => `<span class="chip">${
 const linkButton = (text, url) => `<a class="btn" href="${url}" target="_blank" rel="noopener">${text}</a>`;
 const clickableImage = file => `<button class="pic" onclick="zoomImage('${file}')">${imageBox(file)}</button>`;
 
-// The CV is stored inside the page, so we turn it into a file the browser can download.
-let cvUrl;
-function getCvUrl() {
-  if (!cvUrl) {
-    try {
-      const text = atob(FILES.cv), bytes = new Uint8Array(text.length);
-      for (let i = 0; i < text.length; i++) bytes[i] = text.charCodeAt(i);
-      cvUrl = URL.createObjectURL(new Blob([bytes], { type: "application/pdf" }));
-    } catch (e) {
-      cvUrl = FILE_FOLDER + encodeURIComponent(CV_NAME);
-    }
-  }
-  return cvUrl;
-}
+// The CV is a normal file in the /files folder
+const getCvUrl = () => FILE_FOLDER + encodeURIComponent(CV_NAME);
 
 
 /* =====================================================
@@ -440,14 +463,18 @@ const SECTIONS = {
   projects: () => ["Project board", `
     <h3>My projects</h3>
     <p class="muted" style="margin-bottom:14px">Tap a folder to see screenshots, files, and links.</p>
-    <div class="grid">
+    <div class="grid fade">
       ${PROJECTS.map(p => `
         <button class="card" onclick="openProject('${p.id}')">
           <div class="folder" style="background:${p.color}"></div>
           <strong>${p.name}</strong>
           <small>${p.shots.length} screenshot${p.shots.length > 1 ? "s" : ""} · ${p.tech.slice(0, 2).join(", ")}</small>
         </button>`).join("")}
-    </div>`],
+    </div>
+
+    <h4 style="margin-top:26px">Latest repositories on GitHub</h4>
+    <p class="muted" style="margin-bottom:10px">Loaded live from the GitHub API.</p>
+    <div class="repos" id="ghRepos"><span class="muted">Loading repositories…</span></div>`],
 
   certs: () => ["Certificates and badges", `
     <h3>Certificates</h3>
@@ -494,9 +521,24 @@ const SECTIONS = {
 
   contact: () => ["Contact", `
     <h3>Let's collaborate and connect</h3>
-    <p>I'm eager to contribute my skills and support new initiatives. Feel free to connect, I'd love to explore how we can work together!</p>
-    <p style="margin-top:.7rem"></p>
-    <div style="margin-top:12px">
+    <p>I'm eager to contribute my skills and support new initiatives. Send me a message below, or reach me through the links.</p>
+
+    <form class="cform" id="contactForm" onsubmit="submitContact(event)">
+      <label for="cName">NAME
+        <input id="cName" name="name" type="text" autocomplete="name" required placeholder="Your name">
+      </label>
+      <label for="cEmail">EMAIL
+        <input id="cEmail" name="email" type="email" autocomplete="email" required placeholder="you@example.com">
+      </label>
+      <label for="cMessage">MESSAGE
+        <textarea id="cMessage" name="message" required placeholder="How can we work together?"></textarea>
+      </label>
+      <div><button class="btn" type="submit">Send message</button></div>
+      <div id="formStatus" role="status" aria-live="polite"></div>
+    </form>
+
+    <h4>Or reach me directly</h4>
+    <div>
       <button class="btn" onclick="showContact('contact-box','email')">Email Me</button>
       <button class="btn" onclick="showContact('contact-box','phone')">Phone</button>
       ${linkButton("GitHub", GITHUB)}${linkButton("Credly", CREDLY)}
@@ -518,8 +560,10 @@ function showWindow(title, html, big = false) {
 }
 function openWindow(name) {
   if (name === "home") return closeWindow();
+  if (name === "theme") return toggleTheme();
   const [title, html] = SECTIONS[name]();
   showWindow(title, html);
+  if (name === "projects") loadRepos();
 }
 function closeWindow() { $("win").classList.remove("on"); }
 function enterPortfolio() { $("welcome").classList.add("off"); }
@@ -551,6 +595,78 @@ function copyText(text, button) {
   else oldWay();
 }
 
+
+
+/* =====================================================
+   4b. DARK MODE, CONTACT FORM, GITHUB API
+   ===================================================== */
+function toggleTheme() {
+  const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+  document.documentElement.dataset.theme = next;
+  try { localStorage.setItem("theme", next); } catch (e) {}
+}
+
+// Contact form: no email is sent, it only shows a success alert
+function submitContact(e) {
+  e.preventDefault();
+  const form = e.target;
+  const name = new FormData(form).get("name");
+  alert(`Thank you, ${name}! Your message was sent successfully.`);
+  $("formStatus").innerHTML = `<div class="ok">Message sent. Thanks for reaching out, ${esc(name)}!</div>`;
+  form.reset();
+}
+
+// Escape text coming from outside so it cannot inject HTML
+const esc = t => String(t ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+
+// Repos you do not want listed
+const HIDE_REPOS = ["CERV-", "FINAL-SEAT-DETECTION-PROJECT-GVC", "Seat-Occupancy-AVR", "AVRRRRR"].map(n => n.toLowerCase());
+const isHidden = name => HIDE_REPOS.includes(name.toLowerCase()) || /^avr+$/i.test(name); // also catches AVR, AVRR, AVRRR...
+
+// Custom titles and descriptions (keyed by exact repo name). Other repos use their GitHub description.
+const REPO_INFO = {
+  "PHP-MVP-FRAMEWORK-FINALS-PROJECT": {
+    title: "Custom PHP MVC Framework - Task Manager",
+    desc: "A custom PHP 8.3+ MVC framework with a Task Manager MVP built on top of it. It uses a front controller, PSR-4 namespaces, a router with route parameters, a dependency injection container, a PDO database layer, and a repository-backed CRUD application."
+  },
+  "RBAC-PROJECT-LOSORATA": {
+    title: "Inventory RBAC",
+    desc: "A Laravel inventory management application with Fortify authentication and role-based access control. The app includes seeded demo users, inventory records, user administration, and an inventory report view."
+  },
+  "Research-Project-Philippine-Agri-Farmgate-and-Retail-Price-Analysis": {
+    title: "AgriPulse PH: Agricultural Price Intelligence & Market Integration",
+    desc: "Examines farmgate versus retail price transparency for major agricultural commodities in the Philippines from 2021 to 2025. Using Philippine Statistics Authority (PSA) price data, it analyzes price transmission, marketing margins, farmer share, trends, and Granger causality relationships. Includes a Flask backend API and a Flask-served frontend dashboard."
+  },
+  "julmaerlithe.github.io": {
+    title: "Jeramie Anne Losorata – Personal Portfolio",
+    desc: "A personal portfolio website with a playful desktop-style interface. It shows my profile, projects, skills, certificates, achievements and a contact form. Built for the Mata Technologies Web Development Intern Challenge."
+  }
+};
+
+// Fetch public repos from the GitHub API and show them as cards
+let repoCache;
+async function loadRepos() {
+  const box = $("ghRepos");
+  if (!box) return;
+  try {
+    if (!repoCache) {
+      const user = GITHUB.split("/").filter(Boolean).pop();
+      const res = await fetch(`https://api.github.com/users/${user}/repos?sort=updated&per_page=30`);
+      if (!res.ok) throw new Error("GitHub API " + res.status);
+      repoCache = await res.json();
+    }
+    const repos = repoCache.filter(r => !r.fork && !isHidden(r.name)).slice(0, 6);
+    if (!$("ghRepos")) return; // window was closed while loading
+    box.innerHTML = repos.length ? repos.map(r => `
+      <a class="repo fade" href="${esc(r.html_url)}" target="_blank" rel="noopener">
+        <b>${esc((REPO_INFO[r.name] || {}).title || r.name)}</b>
+        <p>${esc((REPO_INFO[r.name] || {}).desc || r.description || "No description yet.")}</p>
+        <small>${esc(r.name)} · ${esc(r.language || "n/a")} · updated ${new Date(r.updated_at).toLocaleDateString()}</small>
+      </a>`).join("") : `<span class="muted">No public repositories found.</span>`;
+  } catch (err) {
+    box.innerHTML = `<span class="muted">Could not load repositories right now. </span>${linkButton("Open my GitHub", GITHUB)}`;
+  }
+}
 
 /* =====================================================
    5. PROJECT DETAILS AND SCREENSHOT GALLERY
